@@ -1,0 +1,21 @@
+- hosts: all
+  roles:
+    - role: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
+      samba_workgroup: MSHOME
+      samba_hosts_allow:
+        - 127.0.0.1
+        - 4.4.4.4
+      samba_idmap_configs:
+        - domain: "*"
+          option: backend
+          value: tdb
+      samba_veto_files:
+        - 'VIRUS'
+        - '*.com'
+      samba_shares:
+        km:
+          path: /nfs/km
+          valid_users:
+            - km
+            - anula
+            - hexio

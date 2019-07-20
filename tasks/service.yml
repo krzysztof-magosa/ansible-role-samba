@@ -1,0 +1,6 @@
+- name: Set service state
+  service:
+    name: "{{ item.name }}"
+    enabled: "{{ samba_enabled }}"
+    state: "{{ samba_enabled | ternary('started', 'stopped') }}"
+  loop: "{{ samba_services }}"

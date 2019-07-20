@@ -1,0 +1,8 @@
+- name: Template configuration
+  template:
+    src: "smb.conf.j2"
+    dest: "{{ samba_conf_file }}"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  notify: "samba:reload"

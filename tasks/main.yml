@@ -1,0 +1,22 @@
+- import_tasks: variables.yml
+  tags:
+    - samba
+    - samba_variables
+    - samba_install
+    - samba_config
+    - samba_service
+
+- import_tasks: install.yml
+  tags:
+    - samba
+    - samba_install
+
+- import_tasks: config.yml
+  tags:
+    - samba
+    - samba_config
+
+- import_tasks: service.yml
+  tags:
+    - samba
+    - samba_service

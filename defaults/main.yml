@@ -1,0 +1,9 @@
+# Version to be installed
+samba_version: "{{ samba_default_version }}"
+
+# Whether to enable daemon
+samba_enabled: true
+
+samba_idmap_configs: []
+
+samba_shares: {}

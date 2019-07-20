@@ -1,0 +1,2012 @@
+{% macro format_samba_option(v, e, d) -%}
+{{- e -}}
+{%- if v == true or v == false -%}
+{{ v | ternary('yes', 'no') }}
+{%- elif v is iterable and v is not string -%}
+{{ v | join(d) }}
+{%- else -%}
+{{ v }}
+{%- endif -%}
+{{- e -}}
+{%- endmacro %}
+{{ ansible_managed | comment }}
+
+[global]
+{% if samba_nis_homedir is defined %}
+  NIS homedir = {{ format_samba_option(samba_nis_homedir, '', ' ') }}
+{% endif %}
+{% if samba_abort_shutdown_script is defined %}
+  abort shutdown script = {{ format_samba_option(samba_abort_shutdown_script, '', ' ') }}
+{% endif %}
+{% if samba_access_based_share_enum is defined %}
+  access based share enum = {{ format_samba_option(samba_access_based_share_enum, '', ' ') }}
+{% endif %}
+{% if samba_acl_allow_execute_always is defined %}
+  acl allow execute always = {{ format_samba_option(samba_acl_allow_execute_always, '', ' ') }}
+{% endif %}
+{% if samba_acl_check_permissions is defined %}
+  acl check permissions = {{ format_samba_option(samba_acl_check_permissions, '', ' ') }}
+{% endif %}
+{% if samba_acl_group_control is defined %}
+  acl group control = {{ format_samba_option(samba_acl_group_control, '', ' ') }}
+{% endif %}
+{% if samba_acl_map_full_control is defined %}
+  acl map full control = {{ format_samba_option(samba_acl_map_full_control, '', ' ') }}
+{% endif %}
+{% if samba_add_group_script is defined %}
+  add group script = {{ format_samba_option(samba_add_group_script, '', ' ') }}
+{% endif %}
+{% if samba_add_machine_script is defined %}
+  add machine script = {{ format_samba_option(samba_add_machine_script, '', ' ') }}
+{% endif %}
+{% if samba_add_share_command is defined %}
+  add share command = {{ format_samba_option(samba_add_share_command, '', ' ') }}
+{% endif %}
+{% if samba_add_user_script is defined %}
+  add user script = {{ format_samba_option(samba_add_user_script, '', ' ') }}
+{% endif %}
+{% if samba_add_user_to_group_script is defined %}
+  add user to group script = {{ format_samba_option(samba_add_user_to_group_script, '', ' ') }}
+{% endif %}
+{% if samba_addport_command is defined %}
+  addport command = {{ format_samba_option(samba_addport_command, '', ' ') }}
+{% endif %}
+{% if samba_addprinter_command is defined %}
+  addprinter command = {{ format_samba_option(samba_addprinter_command, '', ' ') }}
+{% endif %}
+{% if samba_admin_users is defined %}
+  admin users = {{ format_samba_option(samba_admin_users, '', ' ') }}
+{% endif %}
+{% if samba_administrative_share is defined %}
+  administrative share = {{ format_samba_option(samba_administrative_share, '', ' ') }}
+{% endif %}
+{% if samba_afs_share is defined %}
+  afs share = {{ format_samba_option(samba_afs_share, '', ' ') }}
+{% endif %}
+{% if samba_afs_token_lifetime is defined %}
+  afs token lifetime = {{ format_samba_option(samba_afs_token_lifetime, '', ' ') }}
+{% endif %}
+{% if samba_afs_username_map is defined %}
+  afs username map = {{ format_samba_option(samba_afs_username_map, '', ' ') }}
+{% endif %}
+{% if samba_aio_max_threads is defined %}
+  aio max threads = {{ format_samba_option(samba_aio_max_threads, '', ' ') }}
+{% endif %}
+{% if samba_aio_read_size is defined %}
+  aio read size = {{ format_samba_option(samba_aio_read_size, '', ' ') }}
+{% endif %}
+{% if samba_aio_write_behind is defined %}
+  aio write behind = {{ format_samba_option(samba_aio_write_behind, '/', '/') }}
+{% endif %}
+{% if samba_aio_write_size is defined %}
+  aio write size = {{ format_samba_option(samba_aio_write_size, '', ' ') }}
+{% endif %}
+{% if samba_algorithmic_rid_base is defined %}
+  algorithmic rid base = {{ format_samba_option(samba_algorithmic_rid_base, '', ' ') }}
+{% endif %}
+{% if samba_allocation_roundup_size is defined %}
+  allocation roundup size = {{ format_samba_option(samba_allocation_roundup_size, '', ' ') }}
+{% endif %}
+{% if samba_allow_dcerpc_auth_level_connect is defined %}
+  allow dcerpc auth level connect = {{ format_samba_option(samba_allow_dcerpc_auth_level_connect, '', ' ') }}
+{% endif %}
+{% if samba_allow_dns_updates is defined %}
+  allow dns updates = {{ format_samba_option(samba_allow_dns_updates, '', ' ') }}
+{% endif %}
+{% if samba_allow_insecure_wide_links is defined %}
+  allow insecure wide links = {{ format_samba_option(samba_allow_insecure_wide_links, '', ' ') }}
+{% endif %}
+{% if samba_allow_nt4_crypto is defined %}
+  allow nt4 crypto = {{ format_samba_option(samba_allow_nt4_crypto, '', ' ') }}
+{% endif %}
+{% if samba_allow_trusted_domains is defined %}
+  allow trusted domains = {{ format_samba_option(samba_allow_trusted_domains, '', ' ') }}
+{% endif %}
+{% if samba_allow_unsafe_cluster_upgrade is defined %}
+  allow unsafe cluster upgrade = {{ format_samba_option(samba_allow_unsafe_cluster_upgrade, '', ' ') }}
+{% endif %}
+{% if samba_apply_group_policies is defined %}
+  apply group policies = {{ format_samba_option(samba_apply_group_policies, '', ' ') }}
+{% endif %}
+{% if samba_async_smb_echo_handler is defined %}
+  async smb echo handler = {{ format_samba_option(samba_async_smb_echo_handler, '', ' ') }}
+{% endif %}
+{% if samba_auth_event_notification is defined %}
+  auth event notification = {{ format_samba_option(samba_auth_event_notification, '', ' ') }}
+{% endif %}
+{% if samba_auto_services is defined %}
+  auto services = {{ format_samba_option(samba_auto_services, '', ' ') }}
+{% endif %}
+{% if samba_available is defined %}
+  available = {{ format_samba_option(samba_available, '', ' ') }}
+{% endif %}
+{% if samba_bind_interfaces_only is defined %}
+  bind interfaces only = {{ format_samba_option(samba_bind_interfaces_only, '', ' ') }}
+{% endif %}
+{% if samba_binddns_dir is defined %}
+  binddns dir = {{ format_samba_option(samba_binddns_dir, '', ' ') }}
+{% endif %}
+{% if samba_block_size is defined %}
+  block size = {{ format_samba_option(samba_block_size, '', ' ') }}
+{% endif %}
+{% if samba_blocking_locks is defined %}
+  blocking locks = {{ format_samba_option(samba_blocking_locks, '', ' ') }}
+{% endif %}
+{% if samba_browse_list is defined %}
+  browse list = {{ format_samba_option(samba_browse_list, '', ' ') }}
+{% endif %}
+{% if samba_browseable is defined %}
+  browseable = {{ format_samba_option(samba_browseable, '', ' ') }}
+{% endif %}
+{% if samba_cache_directory is defined %}
+  cache directory = {{ format_samba_option(samba_cache_directory, '', ' ') }}
+{% endif %}
+{% if samba_case_sensitive is defined %}
+  case sensitive = {{ format_samba_option(samba_case_sensitive, '', ' ') }}
+{% endif %}
+{% if samba_change_notify is defined %}
+  change notify = {{ format_samba_option(samba_change_notify, '', ' ') }}
+{% endif %}
+{% if samba_change_share_command is defined %}
+  change share command = {{ format_samba_option(samba_change_share_command, '', ' ') }}
+{% endif %}
+{% if samba_check_parent_directory_delete_on_close is defined %}
+  check parent directory delete on close = {{ format_samba_option(samba_check_parent_directory_delete_on_close, '', ' ') }}
+{% endif %}
+{% if samba_check_password_script is defined %}
+  check password script = {{ format_samba_option(samba_check_password_script, '', ' ') }}
+{% endif %}
+{% if samba_cldap_port is defined %}
+  cldap port = {{ format_samba_option(samba_cldap_port, '', ' ') }}
+{% endif %}
+{% if samba_client_ntlmv2_auth is defined %}
+  client NTLMv2 auth = {{ format_samba_option(samba_client_ntlmv2_auth, '', ' ') }}
+{% endif %}
+{% if samba_client_ipc_max_protocol is defined %}
+  client ipc max protocol = {{ format_samba_option(samba_client_ipc_max_protocol, '', ' ') }}
+{% endif %}
+{% if samba_client_ipc_min_protocol is defined %}
+  client ipc min protocol = {{ format_samba_option(samba_client_ipc_min_protocol, '', ' ') }}
+{% endif %}
+{% if samba_client_ipc_signing is defined %}
+  client ipc signing = {{ format_samba_option(samba_client_ipc_signing, '', ' ') }}
+{% endif %}
+{% if samba_client_lanman_auth is defined %}
+  client lanman auth = {{ format_samba_option(samba_client_lanman_auth, '', ' ') }}
+{% endif %}
+{% if samba_client_ldap_sasl_wrapping is defined %}
+  client ldap sasl wrapping = {{ format_samba_option(samba_client_ldap_sasl_wrapping, '', ' ') }}
+{% endif %}
+{% if samba_client_max_protocol is defined %}
+  client max protocol = {{ format_samba_option(samba_client_max_protocol, '', ' ') }}
+{% endif %}
+{% if samba_client_min_protocol is defined %}
+  client min protocol = {{ format_samba_option(samba_client_min_protocol, '', ' ') }}
+{% endif %}
+{% if samba_client_plaintext_auth is defined %}
+  client plaintext auth = {{ format_samba_option(samba_client_plaintext_auth, '', ' ') }}
+{% endif %}
+{% if samba_client_schannel is defined %}
+  client schannel = {{ format_samba_option(samba_client_schannel, '', ' ') }}
+{% endif %}
+{% if samba_client_signing is defined %}
+  client signing = {{ format_samba_option(samba_client_signing, '', ' ') }}
+{% endif %}
+{% if samba_client_use_spnego is defined %}
+  client use spnego = {{ format_samba_option(samba_client_use_spnego, '', ' ') }}
+{% endif %}
+{% if samba_client_use_spnego_principal is defined %}
+  client use spnego principal = {{ format_samba_option(samba_client_use_spnego_principal, '', ' ') }}
+{% endif %}
+{% if samba_cluster_addresses is defined %}
+  cluster addresses = {{ format_samba_option(samba_cluster_addresses, '', ' ') }}
+{% endif %}
+{% if samba_clustering is defined %}
+  clustering = {{ format_samba_option(samba_clustering, '', ' ') }}
+{% endif %}
+{% if samba_comment is defined %}
+  comment = {{ format_samba_option(samba_comment, '', ' ') }}
+{% endif %}
+{% if samba_config_backend is defined %}
+  config backend = {{ format_samba_option(samba_config_backend, '', ' ') }}
+{% endif %}
+{% if samba_config_file is defined %}
+  config file = {{ format_samba_option(samba_config_file, '', ' ') }}
+{% endif %}
+{% if samba_copy is defined %}
+  copy = {{ format_samba_option(samba_copy, '', ' ') }}
+{% endif %}
+{% if samba_create_krb5_conf is defined %}
+  create krb5 conf = {{ format_samba_option(samba_create_krb5_conf, '', ' ') }}
+{% endif %}
+{% if samba_create_mask is defined %}
+  create mask = {{ format_samba_option(samba_create_mask, '', ' ') }}
+{% endif %}
+{% if samba_csc_policy is defined %}
+  csc policy = {{ format_samba_option(samba_csc_policy, '', ' ') }}
+{% endif %}
+{% if samba_ctdb_locktime_warn_threshold is defined %}
+  ctdb locktime warn threshold = {{ format_samba_option(samba_ctdb_locktime_warn_threshold, '', ' ') }}
+{% endif %}
+{% if samba_ctdb_timeout is defined %}
+  ctdb timeout = {{ format_samba_option(samba_ctdb_timeout, '', ' ') }}
+{% endif %}
+{% if samba_ctdbd_socket is defined %}
+  ctdbd socket = {{ format_samba_option(samba_ctdbd_socket, '', ' ') }}
+{% endif %}
+{% if samba_cups_connection_timeout is defined %}
+  cups connection timeout = {{ format_samba_option(samba_cups_connection_timeout, '', ' ') }}
+{% endif %}
+{% if samba_cups_encrypt is defined %}
+  cups encrypt = {{ format_samba_option(samba_cups_encrypt, '', ' ') }}
+{% endif %}
+{% if samba_cups_options is defined %}
+  cups options = {{ format_samba_option(samba_cups_options, '', ' ') }}
+{% endif %}
+{% if samba_cups_server is defined %}
+  cups server = {{ format_samba_option(samba_cups_server, '', ' ') }}
+{% endif %}
+{% if samba_dcerpc_endpoint_servers is defined %}
+  dcerpc endpoint servers = {{ format_samba_option(samba_dcerpc_endpoint_servers, '', ' ') }}
+{% endif %}
+{% if samba_deadtime is defined %}
+  deadtime = {{ format_samba_option(samba_deadtime, '', ' ') }}
+{% endif %}
+{% if samba_debug_class is defined %}
+  debug class = {{ format_samba_option(samba_debug_class, '', ' ') }}
+{% endif %}
+{% if samba_debug_hires_timestamp is defined %}
+  debug hires timestamp = {{ format_samba_option(samba_debug_hires_timestamp, '', ' ') }}
+{% endif %}
+{% if samba_debug_pid is defined %}
+  debug pid = {{ format_samba_option(samba_debug_pid, '', ' ') }}
+{% endif %}
+{% if samba_debug_prefix_timestamp is defined %}
+  debug prefix timestamp = {{ format_samba_option(samba_debug_prefix_timestamp, '', ' ') }}
+{% endif %}
+{% if samba_debug_uid is defined %}
+  debug uid = {{ format_samba_option(samba_debug_uid, '', ' ') }}
+{% endif %}
+{% if samba_dedicated_keytab_file is defined %}
+  dedicated keytab file = {{ format_samba_option(samba_dedicated_keytab_file, '', ' ') }}
+{% endif %}
+{% if samba_default_case is defined %}
+  default case = {{ format_samba_option(samba_default_case, '', ' ') }}
+{% endif %}
+{% if samba_default_devmode is defined %}
+  default devmode = {{ format_samba_option(samba_default_devmode, '', ' ') }}
+{% endif %}
+{% if samba_default_service is defined %}
+  default service = {{ format_samba_option(samba_default_service, '', ' ') }}
+{% endif %}
+{% if samba_defer_sharing_violations is defined %}
+  defer sharing violations = {{ format_samba_option(samba_defer_sharing_violations, '', ' ') }}
+{% endif %}
+{% if samba_delete_group_script is defined %}
+  delete group script = {{ format_samba_option(samba_delete_group_script, '', ' ') }}
+{% endif %}
+{% if samba_delete_readonly is defined %}
+  delete readonly = {{ format_samba_option(samba_delete_readonly, '', ' ') }}
+{% endif %}
+{% if samba_delete_share_command is defined %}
+  delete share command = {{ format_samba_option(samba_delete_share_command, '', ' ') }}
+{% endif %}
+{% if samba_delete_user_from_group_script is defined %}
+  delete user from group script = {{ format_samba_option(samba_delete_user_from_group_script, '', ' ') }}
+{% endif %}
+{% if samba_delete_user_script is defined %}
+  delete user script = {{ format_samba_option(samba_delete_user_script, '', ' ') }}
+{% endif %}
+{% if samba_delete_veto_files is defined %}
+  delete veto files = {{ format_samba_option(samba_delete_veto_files, '', ' ') }}
+{% endif %}
+{% if samba_deleteprinter_command is defined %}
+  deleteprinter command = {{ format_samba_option(samba_deleteprinter_command, '', ' ') }}
+{% endif %}
+{% if samba_dfree_cache_time is defined %}
+  dfree cache time = {{ format_samba_option(samba_dfree_cache_time, '', ' ') }}
+{% endif %}
+{% if samba_dfree_command is defined %}
+  dfree command = {{ format_samba_option(samba_dfree_command, '', ' ') }}
+{% endif %}
+{% if samba_dgram_port is defined %}
+  dgram port = {{ format_samba_option(samba_dgram_port, '', ' ') }}
+{% endif %}
+{% if samba_directory_mask is defined %}
+  directory mask = {{ format_samba_option(samba_directory_mask, '', ' ') }}
+{% endif %}
+{% if samba_directory_name_cache_size is defined %}
+  directory name cache size = {{ format_samba_option(samba_directory_name_cache_size, '', ' ') }}
+{% endif %}
+{% if samba_directory_security_mask is defined %}
+  directory security mask = {{ format_samba_option(samba_directory_security_mask, '', ' ') }}
+{% endif %}
+{% if samba_disable_netbios is defined %}
+  disable netbios = {{ format_samba_option(samba_disable_netbios, '', ' ') }}
+{% endif %}
+{% if samba_disable_spoolss is defined %}
+  disable spoolss = {{ format_samba_option(samba_disable_spoolss, '', ' ') }}
+{% endif %}
+{% if samba_dmapi_support is defined %}
+  dmapi support = {{ format_samba_option(samba_dmapi_support, '', ' ') }}
+{% endif %}
+{% if samba_dns_forwarder is defined %}
+  dns forwarder = {{ format_samba_option(samba_dns_forwarder, '', ' ') }}
+{% endif %}
+{% if samba_dns_proxy is defined %}
+  dns proxy = {{ format_samba_option(samba_dns_proxy, '', ' ') }}
+{% endif %}
+{% if samba_dns_update_command is defined %}
+  dns update command = {{ format_samba_option(samba_dns_update_command, '', ' ') }}
+{% endif %}
+{% if samba_dns_zone_scavenging is defined %}
+  dns zone scavenging = {{ format_samba_option(samba_dns_zone_scavenging, '', ' ') }}
+{% endif %}
+{% if samba_domain_logons is defined %}
+  domain logons = {{ format_samba_option(samba_domain_logons, '', ' ') }}
+{% endif %}
+{% if samba_domain_master is defined %}
+  domain master = {{ format_samba_option(samba_domain_master, '', ' ') }}
+{% endif %}
+{% if samba_dont_descend is defined %}
+  dont descend = {{ format_samba_option(samba_dont_descend, '', ',') }}
+{% endif %}
+{% if samba_dos_charset is defined %}
+  dos charset = {{ format_samba_option(samba_dos_charset, '', ' ') }}
+{% endif %}
+{% if samba_dos_filemode is defined %}
+  dos filemode = {{ format_samba_option(samba_dos_filemode, '', ' ') }}
+{% endif %}
+{% if samba_dos_filetime_resolution is defined %}
+  dos filetime resolution = {{ format_samba_option(samba_dos_filetime_resolution, '', ' ') }}
+{% endif %}
+{% if samba_dos_filetimes is defined %}
+  dos filetimes = {{ format_samba_option(samba_dos_filetimes, '', ' ') }}
+{% endif %}
+{% if samba_dsdb_event_notification is defined %}
+  dsdb event notification = {{ format_samba_option(samba_dsdb_event_notification, '', ' ') }}
+{% endif %}
+{% if samba_dsdb_group_change_notification is defined %}
+  dsdb group change notification = {{ format_samba_option(samba_dsdb_group_change_notification, '', ' ') }}
+{% endif %}
+{% if samba_dsdb_password_event_notification is defined %}
+  dsdb password event notification = {{ format_samba_option(samba_dsdb_password_event_notification, '', ' ') }}
+{% endif %}
+{% if samba_durable_handles is defined %}
+  durable handles = {{ format_samba_option(samba_durable_handles, '', ' ') }}
+{% endif %}
+{% if samba_ea_support is defined %}
+  ea support = {{ format_samba_option(samba_ea_support, '', ' ') }}
+{% endif %}
+{% if samba_enable_asu_support is defined %}
+  enable asu support = {{ format_samba_option(samba_enable_asu_support, '', ' ') }}
+{% endif %}
+{% if samba_enable_core_files is defined %}
+  enable core files = {{ format_samba_option(samba_enable_core_files, '', ' ') }}
+{% endif %}
+{% if samba_enable_privileges is defined %}
+  enable privileges = {{ format_samba_option(samba_enable_privileges, '', ' ') }}
+{% endif %}
+{% if samba_enable_spoolss is defined %}
+  enable spoolss = {{ format_samba_option(samba_enable_spoolss, '', ' ') }}
+{% endif %}
+{% if samba_encrypt_passwords is defined %}
+  encrypt passwords = {{ format_samba_option(samba_encrypt_passwords, '', ' ') }}
+{% endif %}
+{% if samba_enhanced_browsing is defined %}
+  enhanced browsing = {{ format_samba_option(samba_enhanced_browsing, '', ' ') }}
+{% endif %}
+{% if samba_enumports_command is defined %}
+  enumports command = {{ format_samba_option(samba_enumports_command, '', ' ') }}
+{% endif %}
+{% if samba_eventlog_list is defined %}
+  eventlog list = {{ format_samba_option(samba_eventlog_list, '', ' ') }}
+{% endif %}
+{% if samba_fake_directory_create_times is defined %}
+  fake directory create times = {{ format_samba_option(samba_fake_directory_create_times, '', ' ') }}
+{% endif %}
+{% if samba_fake_oplocks is defined %}
+  fake oplocks = {{ format_samba_option(samba_fake_oplocks, '', ' ') }}
+{% endif %}
+{% if samba_follow_symlinks is defined %}
+  follow symlinks = {{ format_samba_option(samba_follow_symlinks, '', ' ') }}
+{% endif %}
+{% if samba_force_create_mode is defined %}
+  force create mode = {{ format_samba_option(samba_force_create_mode, '', ' ') }}
+{% endif %}
+{% if samba_force_directory_mode is defined %}
+  force directory mode = {{ format_samba_option(samba_force_directory_mode, '', ' ') }}
+{% endif %}
+{% if samba_force_directory_security_mode is defined %}
+  force directory security mode = {{ format_samba_option(samba_force_directory_security_mode, '', ' ') }}
+{% endif %}
+{% if samba_force_group is defined %}
+  force group = {{ format_samba_option(samba_force_group, '', ' ') }}
+{% endif %}
+{% if samba_force_printername is defined %}
+  force printername = {{ format_samba_option(samba_force_printername, '', ' ') }}
+{% endif %}
+{% if samba_force_security_mode is defined %}
+  force security mode = {{ format_samba_option(samba_force_security_mode, '', ' ') }}
+{% endif %}
+{% if samba_force_unknown_acl_user is defined %}
+  force unknown acl user = {{ format_samba_option(samba_force_unknown_acl_user, '', ' ') }}
+{% endif %}
+{% if samba_force_user is defined %}
+  force user = {{ format_samba_option(samba_force_user, '', ' ') }}
+{% endif %}
+{% if samba_fss_prune_stale is defined %}
+  fss: prune stale = {{ format_samba_option(samba_fss_prune_stale, '', ' ') }}
+{% endif %}
+{% if samba_fss_sequence_timeout is defined %}
+  fss: sequence timeout = {{ format_samba_option(samba_fss_sequence_timeout, '', ' ') }}
+{% endif %}
+{% if samba_fstype is defined %}
+  fstype = {{ format_samba_option(samba_fstype, '', ' ') }}
+{% endif %}
+{% if samba_get_quota_command is defined %}
+  get quota command = {{ format_samba_option(samba_get_quota_command, '', ' ') }}
+{% endif %}
+{% if samba_getwd_cache is defined %}
+  getwd cache = {{ format_samba_option(samba_getwd_cache, '', ' ') }}
+{% endif %}
+{% if samba_gpo_update_command is defined %}
+  gpo update command = {{ format_samba_option(samba_gpo_update_command, '', ' ') }}
+{% endif %}
+{% if samba_guest_account is defined %}
+  guest account = {{ format_samba_option(samba_guest_account, '', ' ') }}
+{% endif %}
+{% if samba_guest_ok is defined %}
+  guest ok = {{ format_samba_option(samba_guest_ok, '', ' ') }}
+{% endif %}
+{% if samba_guest_only is defined %}
+  guest only = {{ format_samba_option(samba_guest_only, '', ' ') }}
+{% endif %}
+{% if samba_hide_dot_files is defined %}
+  hide dot files = {{ format_samba_option(samba_hide_dot_files, '', ' ') }}
+{% endif %}
+{% if samba_hide_files is defined %}
+  hide files = {{ format_samba_option(samba_hide_files, '', ' ') }}
+{% endif %}
+{% if samba_hide_new_files_timeout is defined %}
+  hide new files timeout = {{ format_samba_option(samba_hide_new_files_timeout, '', ' ') }}
+{% endif %}
+{% if samba_hide_special_files is defined %}
+  hide special files = {{ format_samba_option(samba_hide_special_files, '', ' ') }}
+{% endif %}
+{% if samba_hide_unreadable is defined %}
+  hide unreadable = {{ format_samba_option(samba_hide_unreadable, '', ' ') }}
+{% endif %}
+{% if samba_hide_unwriteable_files is defined %}
+  hide unwriteable files = {{ format_samba_option(samba_hide_unwriteable_files, '', ' ') }}
+{% endif %}
+{% if samba_homedir_map is defined %}
+  homedir map = {{ format_samba_option(samba_homedir_map, '', ' ') }}
+{% endif %}
+{% if samba_host_msdfs is defined %}
+  host msdfs = {{ format_samba_option(samba_host_msdfs, '', ' ') }}
+{% endif %}
+{% if samba_hostname_lookups is defined %}
+  hostname lookups = {{ format_samba_option(samba_hostname_lookups, '', ' ') }}
+{% endif %}
+{% if samba_hosts_allow is defined %}
+  hosts allow = {{ format_samba_option(samba_hosts_allow, '', ' ') }}
+{% endif %}
+{% if samba_hosts_deny is defined %}
+  hosts deny = {{ format_samba_option(samba_hosts_deny, '', ' ') }}
+{% endif %}
+{% if samba_idmap_backend is defined %}
+  idmap backend = {{ format_samba_option(samba_idmap_backend, '', ' ') }}
+{% endif %}
+{% if samba_idmap_cache_time is defined %}
+  idmap cache time = {{ format_samba_option(samba_idmap_cache_time, '', ' ') }}
+{% endif %}
+{% if samba_idmap_gid is defined %}
+  idmap gid = {{ format_samba_option(samba_idmap_gid, '', ' ') }}
+{% endif %}
+{% if samba_idmap_negative_cache_time is defined %}
+  idmap negative cache time = {{ format_samba_option(samba_idmap_negative_cache_time, '', ' ') }}
+{% endif %}
+{% if samba_idmap_uid is defined %}
+  idmap uid = {{ format_samba_option(samba_idmap_uid, '', ' ') }}
+{% endif %}
+{% if samba_include is defined %}
+  include = {{ format_samba_option(samba_include, '', ' ') }}
+{% endif %}
+{% if samba_include_system_krb5_conf is defined %}
+  include system krb5 conf = {{ format_samba_option(samba_include_system_krb5_conf, '', ' ') }}
+{% endif %}
+{% if samba_inherit_acls is defined %}
+  inherit acls = {{ format_samba_option(samba_inherit_acls, '', ' ') }}
+{% endif %}
+{% if samba_inherit_owner is defined %}
+  inherit owner = {{ format_samba_option(samba_inherit_owner, '', ' ') }}
+{% endif %}
+{% if samba_inherit_permissions is defined %}
+  inherit permissions = {{ format_samba_option(samba_inherit_permissions, '', ' ') }}
+{% endif %}
+{% if samba_init_logon_delay is defined %}
+  init logon delay = {{ format_samba_option(samba_init_logon_delay, '', ' ') }}
+{% endif %}
+{% if samba_init_logon_delayed_hosts is defined %}
+  init logon delayed hosts = {{ format_samba_option(samba_init_logon_delayed_hosts, '', ' ') }}
+{% endif %}
+{% if samba_interfaces is defined %}
+  interfaces = {{ format_samba_option(samba_interfaces, '', ' ') }}
+{% endif %}
+{% if samba_invalid_users is defined %}
+  invalid users = {{ format_samba_option(samba_invalid_users, '', ' ') }}
+{% endif %}
+{% if samba_iprint_server is defined %}
+  iprint server = {{ format_samba_option(samba_iprint_server, '', ' ') }}
+{% endif %}
+{% if samba_keepalive is defined %}
+  keepalive = {{ format_samba_option(samba_keepalive, '', ' ') }}
+{% endif %}
+{% if samba_kerberos_encryption_types is defined %}
+  kerberos encryption types = {{ format_samba_option(samba_kerberos_encryption_types, '', ' ') }}
+{% endif %}
+{% if samba_kerberos_method is defined %}
+  kerberos method = {{ format_samba_option(samba_kerberos_method, '', ' ') }}
+{% endif %}
+{% if samba_kernel_change_notify is defined %}
+  kernel change notify = {{ format_samba_option(samba_kernel_change_notify, '', ' ') }}
+{% endif %}
+{% if samba_kernel_oplocks is defined %}
+  kernel oplocks = {{ format_samba_option(samba_kernel_oplocks, '', ' ') }}
+{% endif %}
+{% if samba_kernel_share_modes is defined %}
+  kernel share modes = {{ format_samba_option(samba_kernel_share_modes, '', ' ') }}
+{% endif %}
+{% if samba_kpasswd_port is defined %}
+  kpasswd port = {{ format_samba_option(samba_kpasswd_port, '', ' ') }}
+{% endif %}
+{% if samba_krb5_port is defined %}
+  krb5 port = {{ format_samba_option(samba_krb5_port, '', ' ') }}
+{% endif %}
+{% if samba_lanman_auth is defined %}
+  lanman auth = {{ format_samba_option(samba_lanman_auth, '', ' ') }}
+{% endif %}
+{% if samba_large_readwrite is defined %}
+  large readwrite = {{ format_samba_option(samba_large_readwrite, '', ' ') }}
+{% endif %}
+{% if samba_ldap_admin_dn is defined %}
+  ldap admin dn = {{ format_samba_option(samba_ldap_admin_dn, '', ' ') }}
+{% endif %}
+{% if samba_ldap_connection_timeout is defined %}
+  ldap connection timeout = {{ format_samba_option(samba_ldap_connection_timeout, '', ' ') }}
+{% endif %}
+{% if samba_ldap_debug_level is defined %}
+  ldap debug level = {{ format_samba_option(samba_ldap_debug_level, '', ' ') }}
+{% endif %}
+{% if samba_ldap_debug_threshold is defined %}
+  ldap debug threshold = {{ format_samba_option(samba_ldap_debug_threshold, '', ' ') }}
+{% endif %}
+{% if samba_ldap_delete_dn is defined %}
+  ldap delete dn = {{ format_samba_option(samba_ldap_delete_dn, '', ' ') }}
+{% endif %}
+{% if samba_ldap_deref is defined %}
+  ldap deref = {{ format_samba_option(samba_ldap_deref, '', ' ') }}
+{% endif %}
+{% if samba_ldap_follow_referral is defined %}
+  ldap follow referral = {{ format_samba_option(samba_ldap_follow_referral, '', ' ') }}
+{% endif %}
+{% if samba_ldap_group_suffix is defined %}
+  ldap group suffix = {{ format_samba_option(samba_ldap_group_suffix, '', ' ') }}
+{% endif %}
+{% if samba_ldap_idmap_suffix is defined %}
+  ldap idmap suffix = {{ format_samba_option(samba_ldap_idmap_suffix, '', ' ') }}
+{% endif %}
+{% if samba_ldap_machine_suffix is defined %}
+  ldap machine suffix = {{ format_samba_option(samba_ldap_machine_suffix, '', ' ') }}
+{% endif %}
+{% if samba_ldap_page_size is defined %}
+  ldap page size = {{ format_samba_option(samba_ldap_page_size, '', ' ') }}
+{% endif %}
+{% if samba_ldap_passwd_sync is defined %}
+  ldap passwd sync = {{ format_samba_option(samba_ldap_passwd_sync, '', ' ') }}
+{% endif %}
+{% if samba_ldap_replication_sleep is defined %}
+  ldap replication sleep = {{ format_samba_option(samba_ldap_replication_sleep, '', ' ') }}
+{% endif %}
+{% if samba_ldap_server_require_strong_auth is defined %}
+  ldap server require strong auth = {{ format_samba_option(samba_ldap_server_require_strong_auth, '', ' ') }}
+{% endif %}
+{% if samba_ldap_ssl is defined %}
+  ldap ssl = {{ format_samba_option(samba_ldap_ssl, '', ' ') }}
+{% endif %}
+{% if samba_ldap_ssl_ads is defined %}
+  ldap ssl ads = {{ format_samba_option(samba_ldap_ssl_ads, '', ' ') }}
+{% endif %}
+{% if samba_ldap_suffix is defined %}
+  ldap suffix = {{ format_samba_option(samba_ldap_suffix, '', ' ') }}
+{% endif %}
+{% if samba_ldap_timeout is defined %}
+  ldap timeout = {{ format_samba_option(samba_ldap_timeout, '', ' ') }}
+{% endif %}
+{% if samba_ldap_user_suffix is defined %}
+  ldap user suffix = {{ format_samba_option(samba_ldap_user_suffix, '', ' ') }}
+{% endif %}
+{% if samba_ldapsam_editposix is defined %}
+  ldapsam:editposix = {{ format_samba_option(samba_ldapsam_editposix, '', ' ') }}
+{% endif %}
+{% if samba_ldapsam_trusted is defined %}
+  ldapsam:trusted = {{ format_samba_option(samba_ldapsam_trusted, '', ' ') }}
+{% endif %}
+{% if samba_level2_oplocks is defined %}
+  level2 oplocks = {{ format_samba_option(samba_level2_oplocks, '', ' ') }}
+{% endif %}
+{% if samba_lm_announce is defined %}
+  lm announce = {{ format_samba_option(samba_lm_announce, '', ' ') }}
+{% endif %}
+{% if samba_lm_interval is defined %}
+  lm interval = {{ format_samba_option(samba_lm_interval, '', ' ') }}
+{% endif %}
+{% if samba_load_printers is defined %}
+  load printers = {{ format_samba_option(samba_load_printers, '', ' ') }}
+{% endif %}
+{% if samba_local_master is defined %}
+  local master = {{ format_samba_option(samba_local_master, '', ' ') }}
+{% endif %}
+{% if samba_lock_directory is defined %}
+  lock directory = {{ format_samba_option(samba_lock_directory, '', ' ') }}
+{% endif %}
+{% if samba_lock_spin_time is defined %}
+  lock spin time = {{ format_samba_option(samba_lock_spin_time, '', ' ') }}
+{% endif %}
+{% if samba_locking is defined %}
+  locking = {{ format_samba_option(samba_locking, '', ' ') }}
+{% endif %}
+{% if samba_log_file is defined %}
+  log file = {{ format_samba_option(samba_log_file, '', ' ') }}
+{% endif %}
+{% if samba_log_level is defined %}
+  log level = {{ format_samba_option(samba_log_level, '', ' ') }}
+{% endif %}
+{% if samba_log_nt_token_command is defined %}
+  log nt token command = {{ format_samba_option(samba_log_nt_token_command, '', ' ') }}
+{% endif %}
+{% if samba_log_writeable_files_on_exit is defined %}
+  log writeable files on exit = {{ format_samba_option(samba_log_writeable_files_on_exit, '', ' ') }}
+{% endif %}
+{% if samba_logging is defined %}
+  logging = {{ format_samba_option(samba_logging, '', ' ') }}
+{% endif %}
+{% if samba_logon_drive is defined %}
+  logon drive = {{ format_samba_option(samba_logon_drive, '', ' ') }}
+{% endif %}
+{% if samba_logon_home is defined %}
+  logon home = {{ format_samba_option(samba_logon_home, '', ' ') }}
+{% endif %}
+{% if samba_logon_path is defined %}
+  logon path = {{ format_samba_option(samba_logon_path, '', ' ') }}
+{% endif %}
+{% if samba_logon_script is defined %}
+  logon script = {{ format_samba_option(samba_logon_script, '', ' ') }}
+{% endif %}
+{% if samba_lppause_command is defined %}
+  lppause command = {{ format_samba_option(samba_lppause_command, '', ' ') }}
+{% endif %}
+{% if samba_lpq_cache_time is defined %}
+  lpq cache time = {{ format_samba_option(samba_lpq_cache_time, '', ' ') }}
+{% endif %}
+{% if samba_lpq_command is defined %}
+  lpq command = {{ format_samba_option(samba_lpq_command, '', ' ') }}
+{% endif %}
+{% if samba_lpresume_command is defined %}
+  lpresume command = {{ format_samba_option(samba_lpresume_command, '', ' ') }}
+{% endif %}
+{% if samba_lprm_command is defined %}
+  lprm command = {{ format_samba_option(samba_lprm_command, '', ' ') }}
+{% endif %}
+{% if samba_lsa_over_netlogon is defined %}
+  lsa over netlogon = {{ format_samba_option(samba_lsa_over_netlogon, '', ' ') }}
+{% endif %}
+{% if samba_machine_password_timeout is defined %}
+  machine password timeout = {{ format_samba_option(samba_machine_password_timeout, '', ' ') }}
+{% endif %}
+{% if samba_magic_output is defined %}
+  magic output = {{ format_samba_option(samba_magic_output, '', ' ') }}
+{% endif %}
+{% if samba_magic_script is defined %}
+  magic script = {{ format_samba_option(samba_magic_script, '', ' ') }}
+{% endif %}
+{% if samba_mangle_prefix is defined %}
+  mangle prefix = {{ format_samba_option(samba_mangle_prefix, '', ' ') }}
+{% endif %}
+{% if samba_mangled_names is defined %}
+  mangled names = {{ format_samba_option(samba_mangled_names, '', ' ') }}
+{% endif %}
+{% if samba_mangling_char is defined %}
+  mangling char = {{ format_samba_option(samba_mangling_char, '', ' ') }}
+{% endif %}
+{% if samba_mangling_method is defined %}
+  mangling method = {{ format_samba_option(samba_mangling_method, '', ' ') }}
+{% endif %}
+{% if samba_map_acl_inherit is defined %}
+  map acl inherit = {{ format_samba_option(samba_map_acl_inherit, '', ' ') }}
+{% endif %}
+{% if samba_map_archive is defined %}
+  map archive = {{ format_samba_option(samba_map_archive, '', ' ') }}
+{% endif %}
+{% if samba_map_hidden is defined %}
+  map hidden = {{ format_samba_option(samba_map_hidden, '', ' ') }}
+{% endif %}
+{% if samba_map_readonly is defined %}
+  map readonly = {{ format_samba_option(samba_map_readonly, '', ' ') }}
+{% endif %}
+{% if samba_map_system is defined %}
+  map system = {{ format_samba_option(samba_map_system, '', ' ') }}
+{% endif %}
+{% if samba_map_to_guest is defined %}
+  map to guest = {{ format_samba_option(samba_map_to_guest, '', ' ') }}
+{% endif %}
+{% if samba_max_connections is defined %}
+  max connections = {{ format_samba_option(samba_max_connections, '', ' ') }}
+{% endif %}
+{% if samba_max_disk_size is defined %}
+  max disk size = {{ format_samba_option(samba_max_disk_size, '', ' ') }}
+{% endif %}
+{% if samba_max_log_size is defined %}
+  max log size = {{ format_samba_option(samba_max_log_size, '', ' ') }}
+{% endif %}
+{% if samba_max_mux is defined %}
+  max mux = {{ format_samba_option(samba_max_mux, '', ' ') }}
+{% endif %}
+{% if samba_max_open_files is defined %}
+  max open files = {{ format_samba_option(samba_max_open_files, '', ' ') }}
+{% endif %}
+{% if samba_max_print_jobs is defined %}
+  max print jobs = {{ format_samba_option(samba_max_print_jobs, '', ' ') }}
+{% endif %}
+{% if samba_max_reported_print_jobs is defined %}
+  max reported print jobs = {{ format_samba_option(samba_max_reported_print_jobs, '', ' ') }}
+{% endif %}
+{% if samba_max_smbd_processes is defined %}
+  max smbd processes = {{ format_samba_option(samba_max_smbd_processes, '', ' ') }}
+{% endif %}
+{% if samba_max_stat_cache_size is defined %}
+  max stat cache size = {{ format_samba_option(samba_max_stat_cache_size, '', ' ') }}
+{% endif %}
+{% if samba_max_ttl is defined %}
+  max ttl = {{ format_samba_option(samba_max_ttl, '', ' ') }}
+{% endif %}
+{% if samba_max_wins_ttl is defined %}
+  max wins ttl = {{ format_samba_option(samba_max_wins_ttl, '', ' ') }}
+{% endif %}
+{% if samba_max_xmit is defined %}
+  max xmit = {{ format_samba_option(samba_max_xmit, '', ' ') }}
+{% endif %}
+{% if samba_mdns_name is defined %}
+  mdns name = {{ format_samba_option(samba_mdns_name, '', ' ') }}
+{% endif %}
+{% if samba_message_command is defined %}
+  message command = {{ format_samba_option(samba_message_command, '', ' ') }}
+{% endif %}
+{% if samba_min_print_space is defined %}
+  min print space = {{ format_samba_option(samba_min_print_space, '', ' ') }}
+{% endif %}
+{% if samba_min_receivefile_size is defined %}
+  min receivefile size = {{ format_samba_option(samba_min_receivefile_size, '', ' ') }}
+{% endif %}
+{% if samba_min_wins_ttl is defined %}
+  min wins ttl = {{ format_samba_option(samba_min_wins_ttl, '', ' ') }}
+{% endif %}
+{% if samba_mit_kdc_command is defined %}
+  mit kdc command = {{ format_samba_option(samba_mit_kdc_command, '', ' ') }}
+{% endif %}
+{% if samba_msdfs_proxy is defined %}
+  msdfs proxy = {{ format_samba_option(samba_msdfs_proxy, '', ' ') }}
+{% endif %}
+{% if samba_msdfs_root is defined %}
+  msdfs root = {{ format_samba_option(samba_msdfs_root, '', ' ') }}
+{% endif %}
+{% if samba_msdfs_shuffle_referrals is defined %}
+  msdfs shuffle referrals = {{ format_samba_option(samba_msdfs_shuffle_referrals, '', ' ') }}
+{% endif %}
+{% if samba_multicast_dns_register is defined %}
+  multicast dns register = {{ format_samba_option(samba_multicast_dns_register, '', ' ') }}
+{% endif %}
+{% if samba_name_cache_timeout is defined %}
+  name cache timeout = {{ format_samba_option(samba_name_cache_timeout, '', ' ') }}
+{% endif %}
+{% if samba_name_resolve_order is defined %}
+  name resolve order = {{ format_samba_option(samba_name_resolve_order, '', ' ') }}
+{% endif %}
+{% if samba_nbt_client_socket_address is defined %}
+  nbt client socket address = {{ format_samba_option(samba_nbt_client_socket_address, '', ' ') }}
+{% endif %}
+{% if samba_nbt_port is defined %}
+  nbt port = {{ format_samba_option(samba_nbt_port, '', ' ') }}
+{% endif %}
+{% if samba_nbtd_wins_prepend1bto1cqueries is defined %}
+  nbtd:wins_prepend1Bto1Cqueries = {{ format_samba_option(samba_nbtd_wins_prepend1bto1cqueries, '', ' ') }}
+{% endif %}
+{% if samba_nbtd_wins_randomize1clist_mask is defined %}
+  nbtd:wins_randomize1Clist_mask = {{ format_samba_option(samba_nbtd_wins_randomize1clist_mask, '', ' ') }}
+{% endif %}
+{% if samba_nbtd_wins_wins_randomize1clist is defined %}
+  nbtd:wins_wins_randomize1Clist = {{ format_samba_option(samba_nbtd_wins_wins_randomize1clist, '', ' ') }}
+{% endif %}
+{% if samba_ncalrpc_dir is defined %}
+  ncalrpc dir = {{ format_samba_option(samba_ncalrpc_dir, '', ' ') }}
+{% endif %}
+{% if samba_netbios_aliases is defined %}
+  netbios aliases = {{ format_samba_option(samba_netbios_aliases, '', ' ') }}
+{% endif %}
+{% if samba_netbios_name is defined %}
+  netbios name = {{ format_samba_option(samba_netbios_name, '', ' ') }}
+{% endif %}
+{% if samba_netbios_scope is defined %}
+  netbios scope = {{ format_samba_option(samba_netbios_scope, '', ' ') }}
+{% endif %}
+{% if samba_neutralize_nt4_emulation is defined %}
+  neutralize nt4 emulation = {{ format_samba_option(samba_neutralize_nt4_emulation, '', ' ') }}
+{% endif %}
+{% if samba_nmbd_bind_explicit_broadcast is defined %}
+  nmbd bind explicit broadcast = {{ format_samba_option(samba_nmbd_bind_explicit_broadcast, '', ' ') }}
+{% endif %}
+{% if samba_nsupdate_command is defined %}
+  nsupdate command = {{ format_samba_option(samba_nsupdate_command, '', ' ') }}
+{% endif %}
+{% if samba_nt_acl_support is defined %}
+  nt acl support = {{ format_samba_option(samba_nt_acl_support, '', ' ') }}
+{% endif %}
+{% if samba_nt_pipe_support is defined %}
+  nt pipe support = {{ format_samba_option(samba_nt_pipe_support, '', ' ') }}
+{% endif %}
+{% if samba_nt_status_support is defined %}
+  nt status support = {{ format_samba_option(samba_nt_status_support, '', ' ') }}
+{% endif %}
+{% if samba_ntlm_auth is defined %}
+  ntlm auth = {{ format_samba_option(samba_ntlm_auth, '', ' ') }}
+{% endif %}
+{% if samba_ntp_signd_socket_directory is defined %}
+  ntp signd socket directory = {{ format_samba_option(samba_ntp_signd_socket_directory, '', ' ') }}
+{% endif %}
+{% if samba_ntvfs_handler is defined %}
+  ntvfs handler = {{ format_samba_option(samba_ntvfs_handler, '', ' ') }}
+{% endif %}
+{% if samba_null_passwords is defined %}
+  null passwords = {{ format_samba_option(samba_null_passwords, '', ' ') }}
+{% endif %}
+{% if samba_obey_pam_restrictions is defined %}
+  obey pam restrictions = {{ format_samba_option(samba_obey_pam_restrictions, '', ' ') }}
+{% endif %}
+{% if samba_old_password_allowed_period is defined %}
+  old password allowed period = {{ format_samba_option(samba_old_password_allowed_period, '', ' ') }}
+{% endif %}
+{% if samba_oplock_break_wait_time is defined %}
+  oplock break wait time = {{ format_samba_option(samba_oplock_break_wait_time, '', ' ') }}
+{% endif %}
+{% if samba_oplocks is defined %}
+  oplocks = {{ format_samba_option(samba_oplocks, '', ' ') }}
+{% endif %}
+{% if samba_os_level is defined %}
+  os level = {{ format_samba_option(samba_os_level, '', ' ') }}
+{% endif %}
+{% if samba_os2_driver_map is defined %}
+  os2 driver map = {{ format_samba_option(samba_os2_driver_map, '', ' ') }}
+{% endif %}
+{% if samba_pam_password_change is defined %}
+  pam password change = {{ format_samba_option(samba_pam_password_change, '', ' ') }}
+{% endif %}
+{% if samba_panic_action is defined %}
+  panic action = {{ format_samba_option(samba_panic_action, '', ' ') }}
+{% endif %}
+{% if samba_passdb_backend is defined %}
+  passdb backend = {{ format_samba_option(samba_passdb_backend, '', ' ') }}
+{% endif %}
+{% if samba_passdb_expand_explicit is defined %}
+  passdb expand explicit = {{ format_samba_option(samba_passdb_expand_explicit, '', ' ') }}
+{% endif %}
+{% if samba_passwd_chat is defined %}
+  passwd chat = {{ format_samba_option(samba_passwd_chat, '', ' ') }}
+{% endif %}
+{% if samba_passwd_chat_debug is defined %}
+  passwd chat debug = {{ format_samba_option(samba_passwd_chat_debug, '', ' ') }}
+{% endif %}
+{% if samba_passwd_chat_timeout is defined %}
+  passwd chat timeout = {{ format_samba_option(samba_passwd_chat_timeout, '', ' ') }}
+{% endif %}
+{% if samba_passwd_program is defined %}
+  passwd program = {{ format_samba_option(samba_passwd_program, '', ' ') }}
+{% endif %}
+{% if samba_password_hash_gpg_key_ids is defined %}
+  password hash gpg key ids = {{ format_samba_option(samba_password_hash_gpg_key_ids, '', ' ') }}
+{% endif %}
+{% if samba_password_hash_userpassword_schemes is defined %}
+  password hash userPassword schemes = {{ format_samba_option(samba_password_hash_userpassword_schemes, '', ' ') }}
+{% endif %}
+{% if samba_password_server is defined %}
+  password server = {{ format_samba_option(samba_password_server, '', ' ') }}
+{% endif %}
+{% if samba_path is defined %}
+  path = {{ format_samba_option(samba_path, '', ' ') }}
+{% endif %}
+{% if samba_perfcount_module is defined %}
+  perfcount module = {{ format_samba_option(samba_perfcount_module, '', ' ') }}
+{% endif %}
+{% if samba_pid_directory is defined %}
+  pid directory = {{ format_samba_option(samba_pid_directory, '', ' ') }}
+{% endif %}
+{% if samba_posix_locking is defined %}
+  posix locking = {{ format_samba_option(samba_posix_locking, '', ' ') }}
+{% endif %}
+{% if samba_postexec is defined %}
+  postexec = {{ format_samba_option(samba_postexec, '', ' ') }}
+{% endif %}
+{% if samba_preexec is defined %}
+  preexec = {{ format_samba_option(samba_preexec, '', ' ') }}
+{% endif %}
+{% if samba_preexec_close is defined %}
+  preexec close = {{ format_samba_option(samba_preexec_close, '', ' ') }}
+{% endif %}
+{% if samba_preferred_master is defined %}
+  preferred master = {{ format_samba_option(samba_preferred_master, '', ' ') }}
+{% endif %}
+{% if samba_prefork_backoff_increment is defined %}
+  prefork backoff increment = {{ format_samba_option(samba_prefork_backoff_increment, '', ' ') }}
+{% endif %}
+{% if samba_prefork_children is defined %}
+  prefork children = {{ format_samba_option(samba_prefork_children, '', ' ') }}
+{% endif %}
+{% if samba_prefork_maximum_backoff is defined %}
+  prefork maximum backoff = {{ format_samba_option(samba_prefork_maximum_backoff, '', ' ') }}
+{% endif %}
+{% if samba_preload_modules is defined %}
+  preload modules = {{ format_samba_option(samba_preload_modules, '', ' ') }}
+{% endif %}
+{% if samba_preserve_case is defined %}
+  preserve case = {{ format_samba_option(samba_preserve_case, '', ' ') }}
+{% endif %}
+{% if samba_print_command is defined %}
+  print command = {{ format_samba_option(samba_print_command, '', ' ') }}
+{% endif %}
+{% if samba_print_notify_backchannel is defined %}
+  print notify backchannel = {{ format_samba_option(samba_print_notify_backchannel, '', ' ') }}
+{% endif %}
+{% if samba_printable is defined %}
+  printable = {{ format_samba_option(samba_printable, '', ' ') }}
+{% endif %}
+{% if samba_printcap_cache_time is defined %}
+  printcap cache time = {{ format_samba_option(samba_printcap_cache_time, '', ' ') }}
+{% endif %}
+{% if samba_printcap_name is defined %}
+  printcap name = {{ format_samba_option(samba_printcap_name, '', ' ') }}
+{% endif %}
+{% if samba_printer_name is defined %}
+  printer name = {{ format_samba_option(samba_printer_name, '', ' ') }}
+{% endif %}
+{% if samba_printing is defined %}
+  printing = {{ format_samba_option(samba_printing, '', ' ') }}
+{% endif %}
+{% if samba_printjob_username is defined %}
+  printjob username = {{ format_samba_option(samba_printjob_username, '', ' ') }}
+{% endif %}
+{% if samba_private_dir is defined %}
+  private dir = {{ format_samba_option(samba_private_dir, '', ' ') }}
+{% endif %}
+{% if samba_queuepause_command is defined %}
+  queuepause command = {{ format_samba_option(samba_queuepause_command, '', ' ') }}
+{% endif %}
+{% if samba_queueresume_command is defined %}
+  queueresume command = {{ format_samba_option(samba_queueresume_command, '', ' ') }}
+{% endif %}
+{% if samba_raw_ntlmv2_auth is defined %}
+  raw NTLMv2 auth = {{ format_samba_option(samba_raw_ntlmv2_auth, '', ' ') }}
+{% endif %}
+{% if samba_read_list is defined %}
+  read list = {{ format_samba_option(samba_read_list, '', ' ') }}
+{% endif %}
+{% if samba_read_only is defined %}
+  read only = {{ format_samba_option(samba_read_only, '', ' ') }}
+{% endif %}
+{% if samba_read_raw is defined %}
+  read raw = {{ format_samba_option(samba_read_raw, '', ' ') }}
+{% endif %}
+{% if samba_realm is defined %}
+  realm = {{ format_samba_option(samba_realm, '', ' ') }}
+{% endif %}
+{% if samba_registry_shares is defined %}
+  registry shares = {{ format_samba_option(samba_registry_shares, '', ' ') }}
+{% endif %}
+{% if samba_reject_md5_clients is defined %}
+  reject md5 clients = {{ format_samba_option(samba_reject_md5_clients, '', ' ') }}
+{% endif %}
+{% if samba_reject_md5_servers is defined %}
+  reject md5 servers = {{ format_samba_option(samba_reject_md5_servers, '', ' ') }}
+{% endif %}
+{% if samba_remote_announce is defined %}
+  remote announce = {{ format_samba_option(samba_remote_announce, '', ' ') }}
+{% endif %}
+{% if samba_remote_browse_sync is defined %}
+  remote browse sync = {{ format_samba_option(samba_remote_browse_sync, '', ' ') }}
+{% endif %}
+{% if samba_rename_user_script is defined %}
+  rename user script = {{ format_samba_option(samba_rename_user_script, '', ' ') }}
+{% endif %}
+{% if samba_require_strong_key is defined %}
+  require strong key = {{ format_samba_option(samba_require_strong_key, '', ' ') }}
+{% endif %}
+{% if samba_reset_on_zero_vc is defined %}
+  reset on zero vc = {{ format_samba_option(samba_reset_on_zero_vc, '', ' ') }}
+{% endif %}
+{% if samba_restrict_anonymous is defined %}
+  restrict anonymous = {{ format_samba_option(samba_restrict_anonymous, '', ' ') }}
+{% endif %}
+{% if samba_rndc_command is defined %}
+  rndc command = {{ format_samba_option(samba_rndc_command, '', ' ') }}
+{% endif %}
+{% if samba_root_directory is defined %}
+  root directory = {{ format_samba_option(samba_root_directory, '', ' ') }}
+{% endif %}
+{% if samba_root_postexec is defined %}
+  root postexec = {{ format_samba_option(samba_root_postexec, '', ' ') }}
+{% endif %}
+{% if samba_root_preexec is defined %}
+  root preexec = {{ format_samba_option(samba_root_preexec, '', ' ') }}
+{% endif %}
+{% if samba_root_preexec_close is defined %}
+  root preexec close = {{ format_samba_option(samba_root_preexec_close, '', ' ') }}
+{% endif %}
+{% if samba_rpc_big_endian is defined %}
+  rpc big endian = {{ format_samba_option(samba_rpc_big_endian, '', ' ') }}
+{% endif %}
+{% if samba_rpc_server_dynamic_port_range is defined %}
+  rpc server dynamic port range = {{ format_samba_option(samba_rpc_server_dynamic_port_range, '', ' ') }}
+{% endif %}
+{% if samba_rpc_server_port is defined %}
+  rpc server port = {{ format_samba_option(samba_rpc_server_port, '', ' ') }}
+{% endif %}
+{% if samba_rpc_daemon_daemon is defined %}
+  rpc_daemon:DAEMON = {{ format_samba_option(samba_rpc_daemon_daemon, '', ' ') }}
+{% endif %}
+{% if samba_rpc_server_server is defined %}
+  rpc_server:SERVER = {{ format_samba_option(samba_rpc_server_server, '', ' ') }}
+{% endif %}
+{% if samba_samba_kcc_command is defined %}
+  samba kcc command = {{ format_samba_option(samba_samba_kcc_command, '', ' ') }}
+{% endif %}
+{% if samba_security is defined %}
+  security = {{ format_samba_option(samba_security, '', ' ') }}
+{% endif %}
+{% if samba_security_mask is defined %}
+  security mask = {{ format_samba_option(samba_security_mask, '', ' ') }}
+{% endif %}
+{% if samba_server_max_protocol is defined %}
+  server max protocol = {{ format_samba_option(samba_server_max_protocol, '', ' ') }}
+{% endif %}
+{% if samba_server_min_protocol is defined %}
+  server min protocol = {{ format_samba_option(samba_server_min_protocol, '', ' ') }}
+{% endif %}
+{% if samba_server_multi_channel_support is defined %}
+  server multi channel support = {{ format_samba_option(samba_server_multi_channel_support, '', ' ') }}
+{% endif %}
+{% if samba_server_role is defined %}
+  server role = {{ format_samba_option(samba_server_role, '', ' ') }}
+{% endif %}
+{% if samba_server_schannel is defined %}
+  server schannel = {{ format_samba_option(samba_server_schannel, '', ' ') }}
+{% endif %}
+{% if samba_server_services is defined %}
+  server services = {{ format_samba_option(samba_server_services, '', ' ') }}
+{% endif %}
+{% if samba_server_signing is defined %}
+  server signing = {{ format_samba_option(samba_server_signing, '', ' ') }}
+{% endif %}
+{% if samba_server_string is defined %}
+  server string = {{ format_samba_option(samba_server_string, '', ' ') }}
+{% endif %}
+{% if samba_set_primary_group_script is defined %}
+  set primary group script = {{ format_samba_option(samba_set_primary_group_script, '', ' ') }}
+{% endif %}
+{% if samba_set_quota_command is defined %}
+  set quota command = {{ format_samba_option(samba_set_quota_command, '', ' ') }}
+{% endif %}
+{% if samba_share_backend is defined %}
+  share backend = {{ format_samba_option(samba_share_backend, '', ' ') }}
+{% endif %}
+{% if samba_share_fake_fscaps is defined %}
+  share:fake_fscaps = {{ format_samba_option(samba_share_fake_fscaps, '', ' ') }}
+{% endif %}
+{% if samba_short_preserve_case is defined %}
+  short preserve case = {{ format_samba_option(samba_short_preserve_case, '', ' ') }}
+{% endif %}
+{% if samba_show_add_printer_wizard is defined %}
+  show add printer wizard = {{ format_samba_option(samba_show_add_printer_wizard, '', ' ') }}
+{% endif %}
+{% if samba_shutdown_script is defined %}
+  shutdown script = {{ format_samba_option(samba_shutdown_script, '', ' ') }}
+{% endif %}
+{% if samba_smb_encrypt is defined %}
+  smb encrypt = {{ format_samba_option(samba_smb_encrypt, '', ' ') }}
+{% endif %}
+{% if samba_smb_passwd_file is defined %}
+  smb passwd file = {{ format_samba_option(samba_smb_passwd_file, '', ' ') }}
+{% endif %}
+{% if samba_smb_ports is defined %}
+  smb ports = {{ format_samba_option(samba_smb_ports, '', ' ') }}
+{% endif %}
+{% if samba_smb2_leases is defined %}
+  smb2 leases = {{ format_samba_option(samba_smb2_leases, '', ' ') }}
+{% endif %}
+{% if samba_smb2_max_credits is defined %}
+  smb2 max credits = {{ format_samba_option(samba_smb2_max_credits, '', ' ') }}
+{% endif %}
+{% if samba_smb2_max_read is defined %}
+  smb2 max read = {{ format_samba_option(samba_smb2_max_read, '', ' ') }}
+{% endif %}
+{% if samba_smb2_max_trans is defined %}
+  smb2 max trans = {{ format_samba_option(samba_smb2_max_trans, '', ' ') }}
+{% endif %}
+{% if samba_smb2_max_write is defined %}
+  smb2 max write = {{ format_samba_option(samba_smb2_max_write, '', ' ') }}
+{% endif %}
+{% if samba_smbd_async_dosmode is defined %}
+  smbd async dosmode = {{ format_samba_option(samba_smbd_async_dosmode, '', ' ') }}
+{% endif %}
+{% if samba_smbd_getinfo_ask_sharemode is defined %}
+  smbd getinfo ask sharemode = {{ format_samba_option(samba_smbd_getinfo_ask_sharemode, '', ' ') }}
+{% endif %}
+{% if samba_smbd_max_async_dosmode is defined %}
+  smbd max async dosmode = {{ format_samba_option(samba_smbd_max_async_dosmode, '', ' ') }}
+{% endif %}
+{% if samba_smbd_profiling_level is defined %}
+  smbd profiling level = {{ format_samba_option(samba_smbd_profiling_level, '', ' ') }}
+{% endif %}
+{% if samba_smbd_search_ask_sharemode is defined %}
+  smbd search ask sharemode = {{ format_samba_option(samba_smbd_search_ask_sharemode, '', ' ') }}
+{% endif %}
+{% if samba_socket_options is defined %}
+  socket options = {{ format_samba_option(samba_socket_options, '', ' ') }}
+{% endif %}
+{% if samba_spn_update_command is defined %}
+  spn update command = {{ format_samba_option(samba_spn_update_command, '', ' ') }}
+{% endif %}
+{% if samba_spoolss_architecture is defined %}
+  spoolss: architecture = {{ format_samba_option(samba_spoolss_architecture, '', ' ') }}
+{% endif %}
+{% if samba_spoolss_os_build is defined %}
+  spoolss: os_build = {{ format_samba_option(samba_spoolss_os_build, '', ' ') }}
+{% endif %}
+{% if samba_spoolss_os_major is defined %}
+  spoolss: os_major = {{ format_samba_option(samba_spoolss_os_major, '', ' ') }}
+{% endif %}
+{% if samba_spoolss_os_minor is defined %}
+  spoolss: os_minor = {{ format_samba_option(samba_spoolss_os_minor, '', ' ') }}
+{% endif %}
+{% if samba_spoolss_client_os_build is defined %}
+  spoolss_client: os_build = {{ format_samba_option(samba_spoolss_client_os_build, '', ' ') }}
+{% endif %}
+{% if samba_spoolss_client_os_major is defined %}
+  spoolss_client: os_major = {{ format_samba_option(samba_spoolss_client_os_major, '', ' ') }}
+{% endif %}
+{% if samba_spoolss_client_os_minor is defined %}
+  spoolss_client: os_minor = {{ format_samba_option(samba_spoolss_client_os_minor, '', ' ') }}
+{% endif %}
+{% if samba_spotlight is defined %}
+  spotlight = {{ format_samba_option(samba_spotlight, '', ' ') }}
+{% endif %}
+{% if samba_stat_cache is defined %}
+  stat cache = {{ format_samba_option(samba_stat_cache, '', ' ') }}
+{% endif %}
+{% if samba_state_directory is defined %}
+  state directory = {{ format_samba_option(samba_state_directory, '', ' ') }}
+{% endif %}
+{% if samba_store_dos_attributes is defined %}
+  store dos attributes = {{ format_samba_option(samba_store_dos_attributes, '', ' ') }}
+{% endif %}
+{% if samba_strict_allocate is defined %}
+  strict allocate = {{ format_samba_option(samba_strict_allocate, '', ' ') }}
+{% endif %}
+{% if samba_strict_locking is defined %}
+  strict locking = {{ format_samba_option(samba_strict_locking, '', ' ') }}
+{% endif %}
+{% if samba_strict_rename is defined %}
+  strict rename = {{ format_samba_option(samba_strict_rename, '', ' ') }}
+{% endif %}
+{% if samba_strict_sync is defined %}
+  strict sync = {{ format_samba_option(samba_strict_sync, '', ' ') }}
+{% endif %}
+{% if samba_svcctl_list is defined %}
+  svcctl list = {{ format_samba_option(samba_svcctl_list, '', ' ') }}
+{% endif %}
+{% if samba_sync_always is defined %}
+  sync always = {{ format_samba_option(samba_sync_always, '', ' ') }}
+{% endif %}
+{% if samba_syslog is defined %}
+  syslog = {{ format_samba_option(samba_syslog, '', ' ') }}
+{% endif %}
+{% if samba_syslog_only is defined %}
+  syslog only = {{ format_samba_option(samba_syslog_only, '', ' ') }}
+{% endif %}
+{% if samba_template_homedir is defined %}
+  template homedir = {{ format_samba_option(samba_template_homedir, '', ' ') }}
+{% endif %}
+{% if samba_template_shell is defined %}
+  template shell = {{ format_samba_option(samba_template_shell, '', ' ') }}
+{% endif %}
+{% if samba_time_server is defined %}
+  time server = {{ format_samba_option(samba_time_server, '', ' ') }}
+{% endif %}
+{% if samba_timestamp_logs is defined %}
+  timestamp logs = {{ format_samba_option(samba_timestamp_logs, '', ' ') }}
+{% endif %}
+{% if samba_tls_cafile is defined %}
+  tls cafile = {{ format_samba_option(samba_tls_cafile, '', ' ') }}
+{% endif %}
+{% if samba_tls_certfile is defined %}
+  tls certfile = {{ format_samba_option(samba_tls_certfile, '', ' ') }}
+{% endif %}
+{% if samba_tls_crlfile is defined %}
+  tls crlfile = {{ format_samba_option(samba_tls_crlfile, '', ' ') }}
+{% endif %}
+{% if samba_tls_dh_params_file is defined %}
+  tls dh params file = {{ format_samba_option(samba_tls_dh_params_file, '', ' ') }}
+{% endif %}
+{% if samba_tls_enabled is defined %}
+  tls enabled = {{ format_samba_option(samba_tls_enabled, '', ' ') }}
+{% endif %}
+{% if samba_tls_keyfile is defined %}
+  tls keyfile = {{ format_samba_option(samba_tls_keyfile, '', ' ') }}
+{% endif %}
+{% if samba_tls_priority is defined %}
+  tls priority = {{ format_samba_option(samba_tls_priority, '', ' ') }}
+{% endif %}
+{% if samba_tls_verify_peer is defined %}
+  tls verify peer = {{ format_samba_option(samba_tls_verify_peer, '', ' ') }}
+{% endif %}
+{% if samba_unicode is defined %}
+  unicode = {{ format_samba_option(samba_unicode, '', ' ') }}
+{% endif %}
+{% if samba_unix_charset is defined %}
+  unix charset = {{ format_samba_option(samba_unix_charset, '', ' ') }}
+{% endif %}
+{% if samba_unix_extensions is defined %}
+  unix extensions = {{ format_samba_option(samba_unix_extensions, '', ' ') }}
+{% endif %}
+{% if samba_unix_password_sync is defined %}
+  unix password sync = {{ format_samba_option(samba_unix_password_sync, '', ' ') }}
+{% endif %}
+{% if samba_use_client_driver is defined %}
+  use client driver = {{ format_samba_option(samba_use_client_driver, '', ' ') }}
+{% endif %}
+{% if samba_use_mmap is defined %}
+  use mmap = {{ format_samba_option(samba_use_mmap, '', ' ') }}
+{% endif %}
+{% if samba_use_sendfile is defined %}
+  use sendfile = {{ format_samba_option(samba_use_sendfile, '', ' ') }}
+{% endif %}
+{% if samba_username_level is defined %}
+  username level = {{ format_samba_option(samba_username_level, '', ' ') }}
+{% endif %}
+{% if samba_username_map is defined %}
+  username map = {{ format_samba_option(samba_username_map, '', ' ') }}
+{% endif %}
+{% if samba_username_map_cache_time is defined %}
+  username map cache time = {{ format_samba_option(samba_username_map_cache_time, '', ' ') }}
+{% endif %}
+{% if samba_username_map_script is defined %}
+  username map script = {{ format_samba_option(samba_username_map_script, '', ' ') }}
+{% endif %}
+{% if samba_usershare_allow_guests is defined %}
+  usershare allow guests = {{ format_samba_option(samba_usershare_allow_guests, '', ' ') }}
+{% endif %}
+{% if samba_usershare_max_shares is defined %}
+  usershare max shares = {{ format_samba_option(samba_usershare_max_shares, '', ' ') }}
+{% endif %}
+{% if samba_usershare_owner_only is defined %}
+  usershare owner only = {{ format_samba_option(samba_usershare_owner_only, '', ' ') }}
+{% endif %}
+{% if samba_usershare_path is defined %}
+  usershare path = {{ format_samba_option(samba_usershare_path, '', ' ') }}
+{% endif %}
+{% if samba_usershare_prefix_allow_list is defined %}
+  usershare prefix allow list = {{ format_samba_option(samba_usershare_prefix_allow_list, '', ',') }}
+{% endif %}
+{% if samba_usershare_prefix_deny_list is defined %}
+  usershare prefix deny list = {{ format_samba_option(samba_usershare_prefix_deny_list, '', ',') }}
+{% endif %}
+{% if samba_usershare_template_share is defined %}
+  usershare template share = {{ format_samba_option(samba_usershare_template_share, '', ' ') }}
+{% endif %}
+{% if samba_utmp is defined %}
+  utmp = {{ format_samba_option(samba_utmp, '', ' ') }}
+{% endif %}
+{% if samba_utmp_directory is defined %}
+  utmp directory = {{ format_samba_option(samba_utmp_directory, '', ' ') }}
+{% endif %}
+{% if samba_valid_users is defined %}
+  valid users = {{ format_samba_option(samba_valid_users, '', ' ') }}
+{% endif %}
+{% if samba_veto_files is defined %}
+  veto files = {{ format_samba_option(samba_veto_files, '/', '/') }}
+{% endif %}
+{% if samba_veto_oplock_files is defined %}
+  veto oplock files = {{ format_samba_option(samba_veto_oplock_files, '/', '/') }}
+{% endif %}
+{% if samba_vfs_objects is defined %}
+  vfs objects = {{ format_samba_option(samba_vfs_objects, '', ' ') }}
+{% endif %}
+{% if samba_volume is defined %}
+  volume = {{ format_samba_option(samba_volume, '', ' ') }}
+{% endif %}
+{% if samba_web_port is defined %}
+  web port = {{ format_samba_option(samba_web_port, '', ' ') }}
+{% endif %}
+{% if samba_wide_links is defined %}
+  wide links = {{ format_samba_option(samba_wide_links, '', ' ') }}
+{% endif %}
+{% if samba_winbind_cache_time is defined %}
+  winbind cache time = {{ format_samba_option(samba_winbind_cache_time, '', ' ') }}
+{% endif %}
+{% if samba_winbind_enum_groups is defined %}
+  winbind enum groups = {{ format_samba_option(samba_winbind_enum_groups, '', ' ') }}
+{% endif %}
+{% if samba_winbind_enum_users is defined %}
+  winbind enum users = {{ format_samba_option(samba_winbind_enum_users, '', ' ') }}
+{% endif %}
+{% if samba_winbind_expand_groups is defined %}
+  winbind expand groups = {{ format_samba_option(samba_winbind_expand_groups, '', ' ') }}
+{% endif %}
+{% if samba_winbind_max_clients is defined %}
+  winbind max clients = {{ format_samba_option(samba_winbind_max_clients, '', ' ') }}
+{% endif %}
+{% if samba_winbind_max_domain_connections is defined %}
+  winbind max domain connections = {{ format_samba_option(samba_winbind_max_domain_connections, '', ' ') }}
+{% endif %}
+{% if samba_winbind_nested_groups is defined %}
+  winbind nested groups = {{ format_samba_option(samba_winbind_nested_groups, '', ' ') }}
+{% endif %}
+{% if samba_winbind_normalize_names is defined %}
+  winbind normalize names = {{ format_samba_option(samba_winbind_normalize_names, '', ' ') }}
+{% endif %}
+{% if samba_winbind_nss_info is defined %}
+  winbind nss info = {{ format_samba_option(samba_winbind_nss_info, '', ' ') }}
+{% endif %}
+{% if samba_winbind_offline_logon is defined %}
+  winbind offline logon = {{ format_samba_option(samba_winbind_offline_logon, '', ' ') }}
+{% endif %}
+{% if samba_winbind_reconnect_delay is defined %}
+  winbind reconnect delay = {{ format_samba_option(samba_winbind_reconnect_delay, '', ' ') }}
+{% endif %}
+{% if samba_winbind_refresh_tickets is defined %}
+  winbind refresh tickets = {{ format_samba_option(samba_winbind_refresh_tickets, '', ' ') }}
+{% endif %}
+{% if samba_winbind_request_timeout is defined %}
+  winbind request timeout = {{ format_samba_option(samba_winbind_request_timeout, '', ' ') }}
+{% endif %}
+{% if samba_winbind_rpc_only is defined %}
+  winbind rpc only = {{ format_samba_option(samba_winbind_rpc_only, '', ' ') }}
+{% endif %}
+{% if samba_winbind_scan_trusted_domains is defined %}
+  winbind scan trusted domains = {{ format_samba_option(samba_winbind_scan_trusted_domains, '', ' ') }}
+{% endif %}
+{% if samba_winbind_sealed_pipes is defined %}
+  winbind sealed pipes = {{ format_samba_option(samba_winbind_sealed_pipes, '', ' ') }}
+{% endif %}
+{% if samba_winbind_separator is defined %}
+  winbind separator = {{ format_samba_option(samba_winbind_separator, '', ' ') }}
+{% endif %}
+{% if samba_winbind_use_default_domain is defined %}
+  winbind use default domain = {{ format_samba_option(samba_winbind_use_default_domain, '', ' ') }}
+{% endif %}
+{% if samba_winbind_ignore_domains is defined %}
+  winbind:ignore domains = {{ format_samba_option(samba_winbind_ignore_domains, '', ' ') }}
+{% endif %}
+{% if samba_winbindd_socket_directory is defined %}
+  winbindd socket directory = {{ format_samba_option(samba_winbindd_socket_directory, '', ' ') }}
+{% endif %}
+{% if samba_wins_hook is defined %}
+  wins hook = {{ format_samba_option(samba_wins_hook, '', ' ') }}
+{% endif %}
+{% if samba_wins_proxy is defined %}
+  wins proxy = {{ format_samba_option(samba_wins_proxy, '', ' ') }}
+{% endif %}
+{% if samba_wins_server is defined %}
+  wins server = {{ format_samba_option(samba_wins_server, '', ' ') }}
+{% endif %}
+{% if samba_wins_support is defined %}
+  wins support = {{ format_samba_option(samba_wins_support, '', ' ') }}
+{% endif %}
+{% if samba_winsdb_dbnosync is defined %}
+  winsdb:dbnosync = {{ format_samba_option(samba_winsdb_dbnosync, '', ' ') }}
+{% endif %}
+{% if samba_winsdb_local_owner is defined %}
+  winsdb:local_owner = {{ format_samba_option(samba_winsdb_local_owner, '', ' ') }}
+{% endif %}
+{% if samba_workgroup is defined %}
+  workgroup = {{ format_samba_option(samba_workgroup, '', ' ') }}
+{% endif %}
+{% if samba_wreplsrv_periodic_interval is defined %}
+  wreplsrv:periodic_interval = {{ format_samba_option(samba_wreplsrv_periodic_interval, '', ' ') }}
+{% endif %}
+{% if samba_wreplsrv_propagate_name_releases is defined %}
+  wreplsrv:propagate name releases = {{ format_samba_option(samba_wreplsrv_propagate_name_releases, '', ' ') }}
+{% endif %}
+{% if samba_wreplsrv_scavenging_interval is defined %}
+  wreplsrv:scavenging_interval = {{ format_samba_option(samba_wreplsrv_scavenging_interval, '', ' ') }}
+{% endif %}
+{% if samba_wreplsrv_tombstone_extra_timeout is defined %}
+  wreplsrv:tombstone_extra_timeout = {{ format_samba_option(samba_wreplsrv_tombstone_extra_timeout, '', ' ') }}
+{% endif %}
+{% if samba_wreplsrv_tombstone_interval is defined %}
+  wreplsrv:tombstone_interval = {{ format_samba_option(samba_wreplsrv_tombstone_interval, '', ' ') }}
+{% endif %}
+{% if samba_wreplsrv_tombstone_timeout is defined %}
+  wreplsrv:tombstone_timeout = {{ format_samba_option(samba_wreplsrv_tombstone_timeout, '', ' ') }}
+{% endif %}
+{% if samba_wreplsrv_verify_interval is defined %}
+  wreplsrv:verify_interval = {{ format_samba_option(samba_wreplsrv_verify_interval, '', ' ') }}
+{% endif %}
+{% if samba_write_cache_size is defined %}
+  write cache size = {{ format_samba_option(samba_write_cache_size, '', ' ') }}
+{% endif %}
+{% if samba_write_list is defined %}
+  write list = {{ format_samba_option(samba_write_list, '', ' ') }}
+{% endif %}
+{% if samba_write_raw is defined %}
+  write raw = {{ format_samba_option(samba_write_raw, '', ' ') }}
+{% endif %}
+{% if samba_writeable is defined %}
+  writeable = {{ format_samba_option(samba_writeable, '', ' ') }}
+{% endif %}
+{% if samba_wtmp_directory is defined %}
+  wtmp directory = {{ format_samba_option(samba_wtmp_directory, '', ' ') }}
+{% endif %}
+{% for config in samba_idmap_configs %}
+  idmap config {{ config.domain }} : {{ config.option }} = {{ format_samba_option(config.value, ' ', '') }}
+{% endfor %}
+
+{% for service_name, service_cfg in samba_shares.items() %}
+[{{ service_name }}]
+{% set v = service_cfg.get('access_based_share_enum', None) %}
+{% if v is not none %}
+  access based share enum = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('acl_allow_execute_always', None) %}
+{% if v is not none %}
+  acl allow execute always = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('acl_check_permissions', None) %}
+{% if v is not none %}
+  acl check permissions = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('acl_group_control', None) %}
+{% if v is not none %}
+  acl group control = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('acl_map_full_control', None) %}
+{% if v is not none %}
+  acl map full control = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('admin_users', None) %}
+{% if v is not none %}
+  admin users = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('administrative_share', None) %}
+{% if v is not none %}
+  administrative share = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('afs_share', None) %}
+{% if v is not none %}
+  afs share = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('aio_read_size', None) %}
+{% if v is not none %}
+  aio read size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('aio_write_behind', None) %}
+{% if v is not none %}
+  aio write behind = {{ format_samba_option(v, '/', '/') }}
+{% endif %}
+{% set v = service_cfg.get('aio_write_size', None) %}
+{% if v is not none %}
+  aio write size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('allocation_roundup_size', None) %}
+{% if v is not none %}
+  allocation roundup size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('available', None) %}
+{% if v is not none %}
+  available = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('block_size', None) %}
+{% if v is not none %}
+  block size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('blocking_locks', None) %}
+{% if v is not none %}
+  blocking locks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('browseable', None) %}
+{% if v is not none %}
+  browseable = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('case_sensitive', None) %}
+{% if v is not none %}
+  case sensitive = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('check_parent_directory_delete_on_close', None) %}
+{% if v is not none %}
+  check parent directory delete on close = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('comment', None) %}
+{% if v is not none %}
+  comment = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('copy', None) %}
+{% if v is not none %}
+  copy = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('create_mask', None) %}
+{% if v is not none %}
+  create mask = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('csc_policy', None) %}
+{% if v is not none %}
+  csc policy = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('cups_options', None) %}
+{% if v is not none %}
+  cups options = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('default_case', None) %}
+{% if v is not none %}
+  default case = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('default_devmode', None) %}
+{% if v is not none %}
+  default devmode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('delete_readonly', None) %}
+{% if v is not none %}
+  delete readonly = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('delete_veto_files', None) %}
+{% if v is not none %}
+  delete veto files = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('dfree_cache_time', None) %}
+{% if v is not none %}
+  dfree cache time = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('dfree_command', None) %}
+{% if v is not none %}
+  dfree command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('directory_mask', None) %}
+{% if v is not none %}
+  directory mask = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('directory_name_cache_size', None) %}
+{% if v is not none %}
+  directory name cache size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('directory_security_mask', None) %}
+{% if v is not none %}
+  directory security mask = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('dmapi_support', None) %}
+{% if v is not none %}
+  dmapi support = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('dont_descend', None) %}
+{% if v is not none %}
+  dont descend = {{ format_samba_option(v, '', ',') }}
+{% endif %}
+{% set v = service_cfg.get('dos_filemode', None) %}
+{% if v is not none %}
+  dos filemode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('dos_filetime_resolution', None) %}
+{% if v is not none %}
+  dos filetime resolution = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('dos_filetimes', None) %}
+{% if v is not none %}
+  dos filetimes = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('durable_handles', None) %}
+{% if v is not none %}
+  durable handles = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('ea_support', None) %}
+{% if v is not none %}
+  ea support = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('fake_directory_create_times', None) %}
+{% if v is not none %}
+  fake directory create times = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('fake_oplocks', None) %}
+{% if v is not none %}
+  fake oplocks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('follow_symlinks', None) %}
+{% if v is not none %}
+  follow symlinks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('force_create_mode', None) %}
+{% if v is not none %}
+  force create mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('force_directory_mode', None) %}
+{% if v is not none %}
+  force directory mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('force_directory_security_mode', None) %}
+{% if v is not none %}
+  force directory security mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('force_group', None) %}
+{% if v is not none %}
+  force group = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('force_printername', None) %}
+{% if v is not none %}
+  force printername = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('force_security_mode', None) %}
+{% if v is not none %}
+  force security mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('force_unknown_acl_user', None) %}
+{% if v is not none %}
+  force unknown acl user = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('force_user', None) %}
+{% if v is not none %}
+  force user = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('fstype', None) %}
+{% if v is not none %}
+  fstype = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('guest_ok', None) %}
+{% if v is not none %}
+  guest ok = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('guest_only', None) %}
+{% if v is not none %}
+  guest only = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('hide_dot_files', None) %}
+{% if v is not none %}
+  hide dot files = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('hide_files', None) %}
+{% if v is not none %}
+  hide files = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('hide_new_files_timeout', None) %}
+{% if v is not none %}
+  hide new files timeout = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('hide_special_files', None) %}
+{% if v is not none %}
+  hide special files = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('hide_unreadable', None) %}
+{% if v is not none %}
+  hide unreadable = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('hide_unwriteable_files', None) %}
+{% if v is not none %}
+  hide unwriteable files = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('hosts_allow', None) %}
+{% if v is not none %}
+  hosts allow = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('hosts_deny', None) %}
+{% if v is not none %}
+  hosts deny = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('include', None) %}
+{% if v is not none %}
+  include = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('inherit_acls', None) %}
+{% if v is not none %}
+  inherit acls = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('inherit_owner', None) %}
+{% if v is not none %}
+  inherit owner = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('inherit_permissions', None) %}
+{% if v is not none %}
+  inherit permissions = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('invalid_users', None) %}
+{% if v is not none %}
+  invalid users = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('kernel_oplocks', None) %}
+{% if v is not none %}
+  kernel oplocks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('kernel_share_modes', None) %}
+{% if v is not none %}
+  kernel share modes = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('level2_oplocks', None) %}
+{% if v is not none %}
+  level2 oplocks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('locking', None) %}
+{% if v is not none %}
+  locking = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('lppause_command', None) %}
+{% if v is not none %}
+  lppause command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('lpq_command', None) %}
+{% if v is not none %}
+  lpq command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('lpresume_command', None) %}
+{% if v is not none %}
+  lpresume command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('lprm_command', None) %}
+{% if v is not none %}
+  lprm command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('magic_output', None) %}
+{% if v is not none %}
+  magic output = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('magic_script', None) %}
+{% if v is not none %}
+  magic script = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('mangled_names', None) %}
+{% if v is not none %}
+  mangled names = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('mangling_char', None) %}
+{% if v is not none %}
+  mangling char = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('map_acl_inherit', None) %}
+{% if v is not none %}
+  map acl inherit = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('map_archive', None) %}
+{% if v is not none %}
+  map archive = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('map_hidden', None) %}
+{% if v is not none %}
+  map hidden = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('map_readonly', None) %}
+{% if v is not none %}
+  map readonly = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('map_system', None) %}
+{% if v is not none %}
+  map system = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('max_connections', None) %}
+{% if v is not none %}
+  max connections = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('max_print_jobs', None) %}
+{% if v is not none %}
+  max print jobs = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('max_reported_print_jobs', None) %}
+{% if v is not none %}
+  max reported print jobs = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('min_print_space', None) %}
+{% if v is not none %}
+  min print space = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('msdfs_proxy', None) %}
+{% if v is not none %}
+  msdfs proxy = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('msdfs_root', None) %}
+{% if v is not none %}
+  msdfs root = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('msdfs_shuffle_referrals', None) %}
+{% if v is not none %}
+  msdfs shuffle referrals = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('nt_acl_support', None) %}
+{% if v is not none %}
+  nt acl support = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('ntvfs_handler', None) %}
+{% if v is not none %}
+  ntvfs handler = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('oplocks', None) %}
+{% if v is not none %}
+  oplocks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('path', None) %}
+{% if v is not none %}
+  path = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('posix_locking', None) %}
+{% if v is not none %}
+  posix locking = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('postexec', None) %}
+{% if v is not none %}
+  postexec = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('preexec', None) %}
+{% if v is not none %}
+  preexec = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('preexec_close', None) %}
+{% if v is not none %}
+  preexec close = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('preserve_case', None) %}
+{% if v is not none %}
+  preserve case = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('print_command', None) %}
+{% if v is not none %}
+  print command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('print_notify_backchannel', None) %}
+{% if v is not none %}
+  print notify backchannel = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('printable', None) %}
+{% if v is not none %}
+  printable = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('printer_name', None) %}
+{% if v is not none %}
+  printer name = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('printing', None) %}
+{% if v is not none %}
+  printing = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('printjob_username', None) %}
+{% if v is not none %}
+  printjob username = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('queuepause_command', None) %}
+{% if v is not none %}
+  queuepause command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('queueresume_command', None) %}
+{% if v is not none %}
+  queueresume command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('read_list', None) %}
+{% if v is not none %}
+  read list = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('read_only', None) %}
+{% if v is not none %}
+  read only = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('root_postexec', None) %}
+{% if v is not none %}
+  root postexec = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('root_preexec', None) %}
+{% if v is not none %}
+  root preexec = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('root_preexec_close', None) %}
+{% if v is not none %}
+  root preexec close = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('security_mask', None) %}
+{% if v is not none %}
+  security mask = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('short_preserve_case', None) %}
+{% if v is not none %}
+  short preserve case = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('smb_encrypt', None) %}
+{% if v is not none %}
+  smb encrypt = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('smbd_async_dosmode', None) %}
+{% if v is not none %}
+  smbd async dosmode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('smbd_getinfo_ask_sharemode', None) %}
+{% if v is not none %}
+  smbd getinfo ask sharemode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('smbd_max_async_dosmode', None) %}
+{% if v is not none %}
+  smbd max async dosmode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('smbd_search_ask_sharemode', None) %}
+{% if v is not none %}
+  smbd search ask sharemode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('spotlight', None) %}
+{% if v is not none %}
+  spotlight = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('store_dos_attributes', None) %}
+{% if v is not none %}
+  store dos attributes = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('strict_allocate', None) %}
+{% if v is not none %}
+  strict allocate = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('strict_locking', None) %}
+{% if v is not none %}
+  strict locking = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('strict_rename', None) %}
+{% if v is not none %}
+  strict rename = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('strict_sync', None) %}
+{% if v is not none %}
+  strict sync = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('sync_always', None) %}
+{% if v is not none %}
+  sync always = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('use_client_driver', None) %}
+{% if v is not none %}
+  use client driver = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('use_sendfile', None) %}
+{% if v is not none %}
+  use sendfile = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('valid_users', None) %}
+{% if v is not none %}
+  valid users = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('veto_files', None) %}
+{% if v is not none %}
+  veto files = {{ format_samba_option(v, '/', '/') }}
+{% endif %}
+{% set v = service_cfg.get('veto_oplock_files', None) %}
+{% if v is not none %}
+  veto oplock files = {{ format_samba_option(v, '/', '/') }}
+{% endif %}
+{% set v = service_cfg.get('vfs_objects', None) %}
+{% if v is not none %}
+  vfs objects = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('volume', None) %}
+{% if v is not none %}
+  volume = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('wide_links', None) %}
+{% if v is not none %}
+  wide links = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('write_cache_size', None) %}
+{% if v is not none %}
+  write cache size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('write_list', None) %}
+{% if v is not none %}
+  write list = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = service_cfg.get('writeable', None) %}
+{% if v is not none %}
+  writeable = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% endfor %}

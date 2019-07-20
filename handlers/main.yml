@@ -1,0 +1,6 @@
+- name: Reload samba
+  service:
+    name: "{{ item.name }}"
+    state: "{{ item.reload_by }}"
+  listen: samba:reload
+  loop: "{{ samba_enabled | ternary(samba_services, []) }}"

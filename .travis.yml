@@ -1,0 +1,28 @@
+dist: xenial
+
+addons:
+  apt:
+    packages:
+      - docker-ce
+
+sudo: required
+language: python
+python: 3.7
+
+services:
+  - docker
+
+install:
+  - pip install tox
+
+env:
+  - TOX_ENV: py37-ansible25
+  - TOX_ENV: py37-ansible26
+  - TOX_ENV: py37-ansible27
+  - TOX_ENV: py37-ansible28
+
+script:
+  - tox -e ${TOX_ENV}
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

@@ -1,0 +1,4 @@
+- name: Install samba
+  package:
+    name: "{{ samba_pkg }}{% if samba_version %}-{{ samba_version }}{% endif %}"
+    state: present

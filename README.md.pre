@@ -1,0 +1,74 @@
+# samba
+
+[![Build Status](https://travis-ci.org/krzysztof-magosa/ansible-role-samba.svg?branch=master)](https://travis-ci.org/krzysztof-magosa/ansible-role-samba)
+
+## Description
+Ansible role for Samba
+
+## Requirements
+* Ansible 2.5 or better
+
+## Supported systems
+* CentOS (tested on 7)
+* Debian (tested on Buster, Stretch)
+* Ubuntu (tested on Bionic)
+
+# Data types
+Role automatically converts specified values to format expected by Samba.
+Boolean true (e.g. yes/true) is converted to `yes`, false (e.g. no/false) is converted to `no`.
+Lists are handled depending on option because Samba expects various delimiters (spaces, commas).
+Other values (strings, numbers) are passed as-is.
+
+To achieve following Samba configuration...
+```
+workgroup = MSHOME
+hosts allow = 192.168. 10.
+veto files = /autorun.ini/autorun.inf/
+```
+
+...specify following Ansible configuration:
+```
+samba_workgroup: MSHOME
+samba_hosts_allow:
+  - 192.168.
+  - 10.
+samba_veto_files:
+  - autorun.ini
+  - autorun.inf
+```
+
+# Configuring shares/services
+Shares/services are configured by `samba_shares` dictionary.
+Key is the name of share/service, value is another dictionary using options listed [here](#serviceshare-options).
+
+Example:
+```
+samba_shares:
+  personal:
+    path: /data/secret
+    valid_users:
+      - boss
+      - manager
+  public:
+    path: /data/public
+```
+
+# idmap config
+`idmap config` is supported by `samba_idmap_configs` (note `s`) list. Each item has `domain`, `option` and `value` properties.
+
+To achieve following Samba configuration...
+```
+idmap config CORP : backend = ad
+idmap config CORP : range = 1000-999999
+```
+
+...specify following Ansible configuration:
+```
+samba_idmap_configs:
+  - domain: CORP
+    option: backend
+    value: ad
+  - domain: CORP
+    option: range
+    value: 1000-999999
+```
