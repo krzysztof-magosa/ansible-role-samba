@@ -1,0 +1,27 @@
+- name: Create UNIX groups
+  group:
+    name: "{{ item.name }}"
+    gid: "{{ item.gid | default(omit) }}"
+  loop: "{{ samba_groups }}"
+
+- name: Create UNIX accounts for Samba users
+  user:
+    name: "{{ item.name }}"
+    uid: "{{ item.uid | default(omit) }}"
+    groups: "{{ item.groups | default(omit) }}"
+    shell: "/sbin/nologin"
+  with_items:
+    - "{{ samba_users | selectattr('create_unix', 'defined') | selectattr('create_unix') | list }}"
+    - "{{ samba_default_user_create_unix | ternary(samba_users | rejectattr('create_unix', 'defined') | list, []) }}"
+
+- name: Create Samba users
+  shell: >-
+    set -o pipefail;
+    pdbedit --user={{ item.name | quote }} >/dev/null 2>&1
+    || (echo {{ item.password | quote }}; echo {{ item.password | quote }}) | smbpasswd -s -a {{ item.name | quote }}
+  args:
+    executable: /bin/bash
+  register: samba__passwd
+  changed_when: "'Added user' in samba__passwd.stdout"
+  no_log: true
+  loop: "{{ samba_users }}"

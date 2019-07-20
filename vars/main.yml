@@ -1,0 +1,3 @@
+samba__delimiters:
+  usershare_prefix_allow_list: ","
+  usershare_prefix_deny_list: ","

@@ -1,0 +1,16 @@
+{% macro format_samba_option(v, e, d) -%}
+{{- e -}}
+{# due to weird problem that v=false==0 and 'is number' returning true for bool preventing detection of type (no 'is bool' test) #}
+{%- if v is sameas true or v is sameas false -%}
+{{ v | ternary('yes', 'no') }}
+{%- elif v is iterable and v is not string -%}
+{{ v | join(d) }}
+{%- else -%}
+{{ v }}
+{%- endif -%}
+{{- e -}}
+{%- endmacro %}
+{{ ansible_managed | comment }}
+{% include "global.j2" %}
+
+{% include "services.j2" %}

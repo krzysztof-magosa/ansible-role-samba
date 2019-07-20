@@ -1,0 +1,16 @@
+# Version to be installed
+samba_version: "{{ samba_default_version }}"
+
+# Whether to enable daemon
+samba_enabled: true
+
+samba_idmap_configs: []
+samba_shares: []
+samba_users: []
+samba_groups: []
+
+# Whether to create UNIX account by default.
+samba_default_user_create_unix: false
+
+# Whether to create share directories by default.
+samba_default_share_create: false

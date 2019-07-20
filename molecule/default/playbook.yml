@@ -1,0 +1,40 @@
+- hosts: all
+  roles:
+    - role: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
+      samba_workgroup: MSHOME
+      samba_hosts_allow:
+        - 127.0.0.1
+        - 4.4.4.4
+      samba_idmap_configs:
+        - domain: "*"
+          option: backend
+          value: tdb
+      samba_veto_files:
+        - 'VIRUS'
+        - '*.com'
+      samba_default_share_create: true
+      samba_shares:
+        - name: km
+          path: /nfs/km
+          valid_users:
+            - km
+            - hexio
+      samba_groups:
+        - name: staff
+          gid: 1234
+        - name: friends
+      samba_default_user_create_unix: true
+      samba_users:
+        - name: km
+          owner: km
+          group: staff
+          password: km123!
+          groups:
+            - staff
+            - friends
+        - name: hexio
+          owner: hexio
+          group: friends
+          password: hexio123!
+          groups:
+            - staff

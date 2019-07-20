@@ -1,0 +1,109 @@
+# samba
+
+[![Build Status](https://travis-ci.org/krzysztof-magosa/ansible-role-samba.svg?branch=master)](https://travis-ci.org/krzysztof-magosa/ansible-role-samba)
+
+## Description
+Ansible role for Samba
+
+## Requirements
+* Ansible 2.5 or better
+
+## Supported systems
+* CentOS (tested on 7)
+* Debian (tested on Buster, Stretch)
+* Ubuntu (tested on Bionic)
+
+# Data types
+Role automatically converts specified values to format expected by Samba.
+Boolean true (e.g. yes/true) is converted to `yes`, false (e.g. no/false) is converted to `no`.
+Lists are handled depending on option because Samba expects various delimiters (spaces, commas).
+Other values (strings, numbers) are passed as-is.
+
+To achieve following Samba configuration...
+```
+workgroup = MSHOME
+hosts allow = 192.168. 10.
+veto files = /autorun.ini/autorun.inf/
+```
+
+...specify following Ansible configuration:
+```
+samba_workgroup: MSHOME
+samba_hosts_allow:
+  - 192.168.
+  - 10.
+samba_veto_files:
+  - autorun.ini
+  - autorun.inf
+```
+
+# Configuring shares/services
+Shares/services are configured by `samba_shares` list.
+`name` designates name of share/service and is obligatory, rest of parameters ([see list here](#serviceshare-options)) are optional.
+
+Example:
+```
+samba_shares:
+  - name: personal
+    path: /data/secret
+    valid_users:
+      - boss
+      - manager
+  - name: public:
+    path: /data/public
+    create: true
+    owner: root
+    group: root
+    mode: "0777"
+```
+
+If you want role to create share directory for you, set parameter `create` to `true` or set `samba_default_share_create` so role does it by default for all shares (unless explicitly stated `create: false`). You can optionally change owner/group or mode (aka chmod) by using `owner`, `group` and `mode` parameters. Note that in case it's unspecified it will probably default to root:root, 0755.
+
+# Users and groups
+Samba uses system wide-groups. They can be created using `samba_groups` like here:
+```
+samba_groups:
+  - name: staff
+    gid: 1234
+  - name: friends
+    # gid is optional
+```
+
+Creating users:
+```
+samba_users:
+  - name: km
+    uid: 1000 # uid is optional
+    password: TopSecret1 # Use Ansible Vault to hide this
+    create_unix: true # this is also optional
+    groups: # groups are optional
+      - staff
+      - friends
+```
+
+Please note that Samba requires users to exist in system *prior* to creating them.
+Parameter `create_unix` allows you to have it created by role.
+If your use case is more complex (e.g. you use the same account for shell access)
+I recommend to create user/groups externally, e.g. using my another role [identity](https://github.com/krzysztof-magosa/ansible-role-identity).
+You can enable creating unix accounts by default by setting `samba_default_user_create_unix` to `true`, `create_unix` parameter will be still be respected
+on single items.
+
+# idmap config
+`idmap config` is supported by `samba_idmap_configs` (note `s`) list. Each item has `domain`, `option` and `value` properties.
+
+To achieve following Samba configuration...
+```
+idmap config CORP : backend = ad
+idmap config CORP : range = 1000-999999
+```
+
+...specify following Ansible configuration:
+```
+samba_idmap_configs:
+  - domain: CORP
+    option: backend
+    value: ad
+  - domain: CORP
+    option: range
+    value: 1000-999999
+```

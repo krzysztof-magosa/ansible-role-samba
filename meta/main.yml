@@ -1,0 +1,24 @@
+galaxy_info:
+  role_name: "samba"
+  author: "Krzysztof Magosa"
+  description: "Ansible role for Samba"
+  license: "MIT"
+  min_ansible_version: "2.5"
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+    - name: Ubuntu
+      versions:
+        - bionic
+    - name: EL
+      versions:
+        - 7
+  # galaxy_tags:
+  #   - tag_name
+
+# dependencies:
+#   - src: git@github.com:repo/name.git
+#     scm: git
+#     name: role_name
+#   - galaxy_user.role

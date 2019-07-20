@@ -1,0 +1,10 @@
+- name: Create directories for shares
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    owner: "{{ item.owner | default(omit) }}"
+    group: "{{ item.group | default(omit) }}"
+    mode: "{{ item.mode | default(omit) }}"
+  with_items:
+    - "{{ samba_shares | selectattr('path', 'defined') | selectattr('create', 'defined') | selectattr('create') | list }}"
+    - "{{ samba_default_share_create | ternary(samba_shares | selectattr('path', 'defined') | rejectattr('create', 'defined') | list, []) }}"

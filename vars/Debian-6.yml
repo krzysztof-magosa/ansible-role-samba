@@ -1,0 +1,7 @@
+samba_default_version: ""
+samba_pkg: "samba"
+samba_conf_dir: "/etc/samba"
+samba_conf_file: "{{ samba_conf_dir }}/smb.conf.new"
+samba_services:
+  - name: "samba"
+    reload_by: "reloaded"

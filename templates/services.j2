@@ -1,0 +1,1218 @@
+{% for share in samba_shares %}
+[{{ share.name }}]
+{% set v = share.get('access_based_share_enum', None) %}
+{% if v is not none %}
+  access based share enum = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('acl_allow_execute_always', None) %}
+{% if v is not none %}
+  acl allow execute always = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('acl_check_permissions', None) %}
+{% if v is not none %}
+  acl check permissions = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('acl_group_control', None) %}
+{% if v is not none %}
+  acl group control = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('acl_map_full_control', None) %}
+{% if v is not none %}
+  acl map full control = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('acl_xattr_default_acl_style', None) %}
+{% if v is not none %}
+  acl_xattr:default acl style = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('acl_xattr_ignore_system_acls', None) %}
+{% if v is not none %}
+  acl_xattr:ignore system acls = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('admin_users', None) %}
+{% if v is not none %}
+  admin users = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('administrative_share', None) %}
+{% if v is not none %}
+  administrative share = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('afs_share', None) %}
+{% if v is not none %}
+  afs share = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('aio_read_size', None) %}
+{% if v is not none %}
+  aio read size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('aio_write_behind', None) %}
+{% if v is not none %}
+  aio write behind = {{ format_samba_option(v, '/', '/') }}
+{% endif %}
+{% set v = share.get('aio_write_size', None) %}
+{% if v is not none %}
+  aio write size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('aio_pthread_aio_open', None) %}
+{% if v is not none %}
+  aio_pthread:aio open = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('allocation_roundup_size', None) %}
+{% if v is not none %}
+  allocation roundup size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('allow_hosts', None) %}
+{% if v is not none %}
+  allow hosts = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('audit_facility', None) %}
+{% if v is not none %}
+  audit:facility = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('audit_priority', None) %}
+{% if v is not none %}
+  audit:priority = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('available', None) %}
+{% if v is not none %}
+  available = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('block_size', None) %}
+{% if v is not none %}
+  block size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('blocking_locks', None) %}
+{% if v is not none %}
+  blocking locks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('browsable', None) %}
+{% if v is not none %}
+  browsable = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('browseable', None) %}
+{% if v is not none %}
+  browseable = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('btrfs_manipulate_snapshots', None) %}
+{% if v is not none %}
+  btrfs: manipulate snapshots = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('cacheprime_rsize', None) %}
+{% if v is not none %}
+  cacheprime:rsize = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('case_sensitive', None) %}
+{% if v is not none %}
+  case sensitive = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('casesignames', None) %}
+{% if v is not none %}
+  casesignames = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('catia_mappings', None) %}
+{% if v is not none %}
+  catia:mappings = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('ceph_config_file', None) %}
+{% if v is not none %}
+  ceph:config_file = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('ceph_user_id', None) %}
+{% if v is not none %}
+  ceph:user_id = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('check_parent_directory_delete_on_close', None) %}
+{% if v is not none %}
+  check parent directory delete on close = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('comment', None) %}
+{% if v is not none %}
+  comment = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('commit_dthresh', None) %}
+{% if v is not none %}
+  commit:dthresh = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('copy', None) %}
+{% if v is not none %}
+  copy = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('create_mask', None) %}
+{% if v is not none %}
+  create mask = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('create_mode', None) %}
+{% if v is not none %}
+  create mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('crossrename_sizelimit', None) %}
+{% if v is not none %}
+  crossrename:sizelimit = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('csc_policy', None) %}
+{% if v is not none %}
+  csc policy = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('cups_options', None) %}
+{% if v is not none %}
+  cups options = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('default_case', None) %}
+{% if v is not none %}
+  default case = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('default_devmode', None) %}
+{% if v is not none %}
+  default devmode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('default_quota_gid', None) %}
+{% if v is not none %}
+  default_quota:gid = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('default_quota_gid_nolimit', None) %}
+{% if v is not none %}
+  default_quota:gid nolimit = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('default_quota_uid', None) %}
+{% if v is not none %}
+  default_quota:uid = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('default_quota_uid_nolimit', None) %}
+{% if v is not none %}
+  default_quota:uid nolimit = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('delete_readonly', None) %}
+{% if v is not none %}
+  delete readonly = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('delete_veto_files', None) %}
+{% if v is not none %}
+  delete veto files = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('deny_hosts', None) %}
+{% if v is not none %}
+  deny hosts = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('dfree_cache_time', None) %}
+{% if v is not none %}
+  dfree cache time = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('dfree_command', None) %}
+{% if v is not none %}
+  dfree command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('directory', None) %}
+{% if v is not none %}
+  directory = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('directory_mask', None) %}
+{% if v is not none %}
+  directory mask = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('directory_mode', None) %}
+{% if v is not none %}
+  directory mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('directory_name_cache_size', None) %}
+{% if v is not none %}
+  directory name cache size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('directory_security_mask', None) %}
+{% if v is not none %}
+  directory security mask = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('dmapi_support', None) %}
+{% if v is not none %}
+  dmapi support = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('dont_descend', None) %}
+{% if v is not none %}
+  dont descend = {{ format_samba_option(v, '', ',') }}
+{% endif %}
+{% set v = share.get('dos_filemode', None) %}
+{% if v is not none %}
+  dos filemode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('dos_filetime_resolution', None) %}
+{% if v is not none %}
+  dos filetime resolution = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('dos_filetimes', None) %}
+{% if v is not none %}
+  dos filetimes = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('durable_handles', None) %}
+{% if v is not none %}
+  durable handles = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('ea_support', None) %}
+{% if v is not none %}
+  ea support = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('exec', None) %}
+{% if v is not none %}
+  exec = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fake_directory_create_times', None) %}
+{% if v is not none %}
+  fake directory create times = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fake_oplocks', None) %}
+{% if v is not none %}
+  fake oplocks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fileid_algorithm', None) %}
+{% if v is not none %}
+  fileid:algorithm = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fileid_fstype_allow', None) %}
+{% if v is not none %}
+  fileid:fstype allow = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fileid_fstype_deny', None) %}
+{% if v is not none %}
+  fileid:fstype deny = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fileid_mapping', None) %}
+{% if v is not none %}
+  fileid:mapping = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fileid_mntdir_allow', None) %}
+{% if v is not none %}
+  fileid:mntdir allow = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fileid_mntdir_deny', None) %}
+{% if v is not none %}
+  fileid:mntdir deny = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fileid_nolockinode', None) %}
+{% if v is not none %}
+  fileid:nolockinode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('follow_symlinks', None) %}
+{% if v is not none %}
+  follow symlinks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('force_create_mode', None) %}
+{% if v is not none %}
+  force create mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('force_directory_mode', None) %}
+{% if v is not none %}
+  force directory mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('force_directory_security_mode', None) %}
+{% if v is not none %}
+  force directory security mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('force_group', None) %}
+{% if v is not none %}
+  force group = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('force_printername', None) %}
+{% if v is not none %}
+  force printername = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('force_security_mode', None) %}
+{% if v is not none %}
+  force security mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('force_unknown_acl_user', None) %}
+{% if v is not none %}
+  force unknown acl user = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('force_user', None) %}
+{% if v is not none %}
+  force user = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fruit_delete_empty_adfiles', None) %}
+{% if v is not none %}
+  fruit:delete_empty_adfiles = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fruit_encoding', None) %}
+{% if v is not none %}
+  fruit:encoding = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fruit_locking', None) %}
+{% if v is not none %}
+  fruit:locking = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fruit_metadata', None) %}
+{% if v is not none %}
+  fruit:metadata = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fruit_posix_rename', None) %}
+{% if v is not none %}
+  fruit:posix_rename = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fruit_resource', None) %}
+{% if v is not none %}
+  fruit:resource = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fruit_time_machine', None) %}
+{% if v is not none %}
+  fruit:time machine = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fruit_time_machine_max_size', None) %}
+{% if v is not none %}
+  fruit:time machine max size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fruit_veto_appledouble', None) %}
+{% if v is not none %}
+  fruit:veto_appledouble = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fruit_wipe_intentionally_left_blank_rfork', None) %}
+{% if v is not none %}
+  fruit:wipe_intentionally_left_blank_rfork = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('fstype', None) %}
+{% if v is not none %}
+  fstype = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('full_audit_facility', None) %}
+{% if v is not none %}
+  full_audit:facility = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('full_audit_failure', None) %}
+{% if v is not none %}
+  full_audit:failure = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('full_audit_log_secdesc', None) %}
+{% if v is not none %}
+  full_audit:log_secdesc = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('full_audit_prefix', None) %}
+{% if v is not none %}
+  full_audit:prefix = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('full_audit_priority', None) %}
+{% if v is not none %}
+  full_audit:priority = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('full_audit_success', None) %}
+{% if v is not none %}
+  full_audit:success = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('full_audit_syslog', None) %}
+{% if v is not none %}
+  full_audit:syslog = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('glusterfs_logfile', None) %}
+{% if v is not none %}
+  glusterfs:logfile = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('glusterfs_loglevel', None) %}
+{% if v is not none %}
+  glusterfs:loglevel = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('glusterfs_volfile_server', None) %}
+{% if v is not none %}
+  glusterfs:volfile_server = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('glusterfs_volume', None) %}
+{% if v is not none %}
+  glusterfs:volume = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_acl', None) %}
+{% if v is not none %}
+  gpfs:acl = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_check_fstype', None) %}
+{% if v is not none %}
+  gpfs:check_fstype = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_dfreequota', None) %}
+{% if v is not none %}
+  gpfs:dfreequota = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_getrealfilename', None) %}
+{% if v is not none %}
+  gpfs:getrealfilename = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_hsm', None) %}
+{% if v is not none %}
+  gpfs:hsm = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_leases', None) %}
+{% if v is not none %}
+  gpfs:leases = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_merge_writeappend', None) %}
+{% if v is not none %}
+  gpfs:merge_writeappend = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_prealloc', None) %}
+{% if v is not none %}
+  gpfs:prealloc = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_recalls', None) %}
+{% if v is not none %}
+  gpfs:recalls = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_refuse_dacl_protected', None) %}
+{% if v is not none %}
+  gpfs:refuse_dacl_protected = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_settimes', None) %}
+{% if v is not none %}
+  gpfs:settimes = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_sharemodes', None) %}
+{% if v is not none %}
+  gpfs:sharemodes = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_syncio', None) %}
+{% if v is not none %}
+  gpfs:syncio = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('gpfs_winattr', None) %}
+{% if v is not none %}
+  gpfs:winattr = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('group', None) %}
+{% if v is not none %}
+  group = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('guest_ok', None) %}
+{% if v is not none %}
+  guest ok = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('guest_only', None) %}
+{% if v is not none %}
+  guest only = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('hide_dot_files', None) %}
+{% if v is not none %}
+  hide dot files = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('hide_files', None) %}
+{% if v is not none %}
+  hide files = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('hide_new_files_timeout', None) %}
+{% if v is not none %}
+  hide new files timeout = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('hide_special_files', None) %}
+{% if v is not none %}
+  hide special files = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('hide_unreadable', None) %}
+{% if v is not none %}
+  hide unreadable = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('hide_unwriteable_files', None) %}
+{% if v is not none %}
+  hide unwriteable files = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('hosts_allow', None) %}
+{% if v is not none %}
+  hosts allow = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('hosts_deny', None) %}
+{% if v is not none %}
+  hosts deny = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('include', None) %}
+{% if v is not none %}
+  include = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('inherit_acls', None) %}
+{% if v is not none %}
+  inherit acls = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('inherit_owner', None) %}
+{% if v is not none %}
+  inherit owner = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('inherit_permissions', None) %}
+{% if v is not none %}
+  inherit permissions = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('invalid_users', None) %}
+{% if v is not none %}
+  invalid users = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('kernel_oplocks', None) %}
+{% if v is not none %}
+  kernel oplocks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('kernel_share_modes', None) %}
+{% if v is not none %}
+  kernel share modes = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('level2_oplocks', None) %}
+{% if v is not none %}
+  level2 oplocks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('locking', None) %}
+{% if v is not none %}
+  locking = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('lppause_command', None) %}
+{% if v is not none %}
+  lppause command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('lpq_command', None) %}
+{% if v is not none %}
+  lpq command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('lpresume_command', None) %}
+{% if v is not none %}
+  lpresume command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('lprm_command', None) %}
+{% if v is not none %}
+  lprm command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('magic_output', None) %}
+{% if v is not none %}
+  magic output = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('magic_script', None) %}
+{% if v is not none %}
+  magic script = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('mangled_names', None) %}
+{% if v is not none %}
+  mangled names = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('mangling_char', None) %}
+{% if v is not none %}
+  mangling char = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('map_acl_inherit', None) %}
+{% if v is not none %}
+  map acl inherit = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('map_archive', None) %}
+{% if v is not none %}
+  map archive = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('map_hidden', None) %}
+{% if v is not none %}
+  map hidden = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('map_readonly', None) %}
+{% if v is not none %}
+  map readonly = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('map_system', None) %}
+{% if v is not none %}
+  map system = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('max_connections', None) %}
+{% if v is not none %}
+  max connections = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('max_print_jobs', None) %}
+{% if v is not none %}
+  max print jobs = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('max_reported_print_jobs', None) %}
+{% if v is not none %}
+  max reported print jobs = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('min_print_space', None) %}
+{% if v is not none %}
+  min print space = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('msdfs_proxy', None) %}
+{% if v is not none %}
+  msdfs proxy = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('msdfs_root', None) %}
+{% if v is not none %}
+  msdfs root = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('msdfs_shuffle_referrals', None) %}
+{% if v is not none %}
+  msdfs shuffle referrals = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('nfs4_acedup', None) %}
+{% if v is not none %}
+  nfs4:acedup = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('nfs4_chown', None) %}
+{% if v is not none %}
+  nfs4:chown = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('nfs4_mode', None) %}
+{% if v is not none %}
+  nfs4:mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('nfs4acl_xattr_default_acl_style', None) %}
+{% if v is not none %}
+  nfs4acl_xattr:default acl style = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('nfs4acl_xattr_encoding', None) %}
+{% if v is not none %}
+  nfs4acl_xattr:encoding = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('nfs4acl_xattr_version', None) %}
+{% if v is not none %}
+  nfs4acl_xattr:version = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('nfs4acl_xattr_xattr_name', None) %}
+{% if v is not none %}
+  nfs4acl_xattr:xattr_name = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('nt_acl_support', None) %}
+{% if v is not none %}
+  nt acl support = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('ntvfs_handler', None) %}
+{% if v is not none %}
+  ntvfs handler = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('only_guest', None) %}
+{% if v is not none %}
+  only guest = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('oplocks', None) %}
+{% if v is not none %}
+  oplocks = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('path', None) %}
+{% if v is not none %}
+  path = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('posix_locking', None) %}
+{% if v is not none %}
+  posix locking = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('postexec', None) %}
+{% if v is not none %}
+  postexec = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('prealloc_ext', None) %}
+{% if v is not none %}
+  prealloc:EXT = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('preexec', None) %}
+{% if v is not none %}
+  preexec = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('preexec_close', None) %}
+{% if v is not none %}
+  preexec close = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('preopen_helpers', None) %}
+{% if v is not none %}
+  preopen:helpers = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('preopen_names', None) %}
+{% if v is not none %}
+  preopen:names = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('preopen_num_bytes', None) %}
+{% if v is not none %}
+  preopen:num_bytes = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('preopen_queuelen', None) %}
+{% if v is not none %}
+  preopen:queuelen = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('preserve_case', None) %}
+{% if v is not none %}
+  preserve case = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('print_command', None) %}
+{% if v is not none %}
+  print command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('print_notify_backchannel', None) %}
+{% if v is not none %}
+  print notify backchannel = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('print_ok', None) %}
+{% if v is not none %}
+  print ok = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('printable', None) %}
+{% if v is not none %}
+  printable = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('printer', None) %}
+{% if v is not none %}
+  printer = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('printer_name', None) %}
+{% if v is not none %}
+  printer name = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('printing', None) %}
+{% if v is not none %}
+  printing = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('printjob_username', None) %}
+{% if v is not none %}
+  printjob username = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('public', None) %}
+{% if v is not none %}
+  public = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('queuepause_command', None) %}
+{% if v is not none %}
+  queuepause command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('queueresume_command', None) %}
+{% if v is not none %}
+  queueresume command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('read_list', None) %}
+{% if v is not none %}
+  read list = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('read_only', None) %}
+{% if v is not none %}
+  read only = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('readahead_length', None) %}
+{% if v is not none %}
+  readahead:length = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('readahead_offset', None) %}
+{% if v is not none %}
+  readahead:offset = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('readdir_attr_aapl_finder_info', None) %}
+{% if v is not none %}
+  readdir_attr:aapl_finder_info = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('readdir_attr_aapl_max_access', None) %}
+{% if v is not none %}
+  readdir_attr:aapl_max_access = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('readdir_attr_aapl_rsize', None) %}
+{% if v is not none %}
+  readdir_attr:aapl_rsize = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('readonly_period', None) %}
+{% if v is not none %}
+  readonly:period = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_directory_mode', None) %}
+{% if v is not none %}
+  recycle:directory_mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_exclude', None) %}
+{% if v is not none %}
+  recycle:exclude = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_exclude_dir', None) %}
+{% if v is not none %}
+  recycle:exclude_dir = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_keeptree', None) %}
+{% if v is not none %}
+  recycle:keeptree = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_maxsize', None) %}
+{% if v is not none %}
+  recycle:maxsize = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_minsize', None) %}
+{% if v is not none %}
+  recycle:minsize = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_noversions', None) %}
+{% if v is not none %}
+  recycle:noversions = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_repository', None) %}
+{% if v is not none %}
+  recycle:repository = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_subdir_mode', None) %}
+{% if v is not none %}
+  recycle:subdir_mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_touch', None) %}
+{% if v is not none %}
+  recycle:touch = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_touch_mtime', None) %}
+{% if v is not none %}
+  recycle:touch_mtime = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('recycle_versions', None) %}
+{% if v is not none %}
+  recycle:versions = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('root_postexec', None) %}
+{% if v is not none %}
+  root postexec = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('root_preexec', None) %}
+{% if v is not none %}
+  root preexec = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('root_preexec_close', None) %}
+{% if v is not none %}
+  root preexec close = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('security_mask', None) %}
+{% if v is not none %}
+  security mask = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_basedir', None) %}
+{% if v is not none %}
+  shadow:basedir = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_crossmountpoints', None) %}
+{% if v is not none %}
+  shadow:crossmountpoints = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_delimiter', None) %}
+{% if v is not none %}
+  shadow:delimiter = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_fixinodes', None) %}
+{% if v is not none %}
+  shadow:fixinodes = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_format', None) %}
+{% if v is not none %}
+  shadow:format = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_localtime', None) %}
+{% if v is not none %}
+  shadow:localtime = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_mountpoint', None) %}
+{% if v is not none %}
+  shadow:mountpoint = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_snapdir', None) %}
+{% if v is not none %}
+  shadow:snapdir = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_snapdirseverywhere', None) %}
+{% if v is not none %}
+  shadow:snapdirseverywhere = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_snapprefix', None) %}
+{% if v is not none %}
+  shadow:snapprefix = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_snapsharepath', None) %}
+{% if v is not none %}
+  shadow:snapsharepath = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_sort', None) %}
+{% if v is not none %}
+  shadow:sort = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shadow_sscanf', None) %}
+{% if v is not none %}
+  shadow:sscanf = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shell_snap_check_path_command', None) %}
+{% if v is not none %}
+  shell_snap:check path command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shell_snap_create_command', None) %}
+{% if v is not none %}
+  shell_snap:create command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('shell_snap_delete_command', None) %}
+{% if v is not none %}
+  shell_snap:delete command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('short_preserve_case', None) %}
+{% if v is not none %}
+  short preserve case = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('smb_encrypt', None) %}
+{% if v is not none %}
+  smb encrypt = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('smbd_async_dosmode', None) %}
+{% if v is not none %}
+  smbd async dosmode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('smbd_getinfo_ask_sharemode', None) %}
+{% if v is not none %}
+  smbd getinfo ask sharemode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('smbd_max_async_dosmode', None) %}
+{% if v is not none %}
+  smbd max async dosmode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('smbd_search_ask_sharemode', None) %}
+{% if v is not none %}
+  smbd search ask sharemode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('spotlight', None) %}
+{% if v is not none %}
+  spotlight = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('store_dos_attributes', None) %}
+{% if v is not none %}
+  store dos attributes = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('streams_depot_delete_lost', None) %}
+{% if v is not none %}
+  streams_depot:delete_lost = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('streams_depot_directory', None) %}
+{% if v is not none %}
+  streams_depot:directory = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('streams_xattr_prefix', None) %}
+{% if v is not none %}
+  streams_xattr:prefix = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('streams_xattr_store_stream_type', None) %}
+{% if v is not none %}
+  streams_xattr:store_stream_type = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('strict_allocate', None) %}
+{% if v is not none %}
+  strict allocate = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('strict_locking', None) %}
+{% if v is not none %}
+  strict locking = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('strict_rename', None) %}
+{% if v is not none %}
+  strict rename = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('strict_sync', None) %}
+{% if v is not none %}
+  strict sync = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('sync_always', None) %}
+{% if v is not none %}
+  sync always = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('syncops_disable', None) %}
+{% if v is not none %}
+  syncops:disable = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('syncops_onclose', None) %}
+{% if v is not none %}
+  syncops:onclose = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('syncops_onmeta', None) %}
+{% if v is not none %}
+  syncops:onmeta = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('time_audit_timeout', None) %}
+{% if v is not none %}
+  time_audit:timeout = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('tsmsm_dmapi_attribute', None) %}
+{% if v is not none %}
+  tsmsm:dmapi attribute = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('tsmsm_dmapi_value', None) %}
+{% if v is not none %}
+  tsmsm:dmapi value = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('tsmsm_hsm_script', None) %}
+{% if v is not none %}
+  tsmsm:hsm script = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('tsmsm_online_ratio', None) %}
+{% if v is not none %}
+  tsmsm:online ratio = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('unityed_media_clientid', None) %}
+{% if v is not none %}
+  unityed_media:clientid = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('use_client_driver', None) %}
+{% if v is not none %}
+  use client driver = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('use_sendfile', None) %}
+{% if v is not none %}
+  use sendfile = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('valid_users', None) %}
+{% if v is not none %}
+  valid users = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('veto_files', None) %}
+{% if v is not none %}
+  veto files = {{ format_samba_option(v, '/', '/') }}
+{% endif %}
+{% set v = share.get('veto_oplock_files', None) %}
+{% if v is not none %}
+  veto oplock files = {{ format_samba_option(v, '/', '/') }}
+{% endif %}
+{% set v = share.get('vfs_object', None) %}
+{% if v is not none %}
+  vfs object = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('vfs_objects', None) %}
+{% if v is not none %}
+  vfs objects = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_block_access_on_error', None) %}
+{% if v is not none %}
+  virusfilter:block access on error = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_block_suspected_file', None) %}
+{% if v is not none %}
+  virusfilter:block suspected file = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_cache_entry_limit', None) %}
+{% if v is not none %}
+  virusfilter:cache entry limit = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_cache_time_limit', None) %}
+{% if v is not none %}
+  virusfilter:cache time limit = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_connect_timeout', None) %}
+{% if v is not none %}
+  virusfilter:connect timeout = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_exclude_files', None) %}
+{% if v is not none %}
+  virusfilter:exclude files = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_infected_file_action', None) %}
+{% if v is not none %}
+  virusfilter:infected file action = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_infected_file_command', None) %}
+{% if v is not none %}
+  virusfilter:infected file command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_infected_file_errno_on_close', None) %}
+{% if v is not none %}
+  virusfilter:infected file errno on close = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_infected_file_errno_on_open', None) %}
+{% if v is not none %}
+  virusfilter:infected file errno on open = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_io_timeout', None) %}
+{% if v is not none %}
+  virusfilter:io timeout = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_max_file_size', None) %}
+{% if v is not none %}
+  virusfilter:max file size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_max_nested_scan_archive', None) %}
+{% if v is not none %}
+  virusfilter:max nested scan archive = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_min_file_size', None) %}
+{% if v is not none %}
+  virusfilter:min file size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_quarantine_directory', None) %}
+{% if v is not none %}
+  virusfilter:quarantine directory = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_quarantine_directory_mode', None) %}
+{% if v is not none %}
+  virusfilter:quarantine directory mode = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_quarantine_keep_name', None) %}
+{% if v is not none %}
+  virusfilter:quarantine keep name = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_quarantine_keep_tree', None) %}
+{% if v is not none %}
+  virusfilter:quarantine keep tree = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_quarantine_prefix', None) %}
+{% if v is not none %}
+  virusfilter:quarantine prefix = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_quarantine_suffix', None) %}
+{% if v is not none %}
+  virusfilter:quarantine suffix = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_rename_prefix', None) %}
+{% if v is not none %}
+  virusfilter:rename prefix = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_rename_suffix', None) %}
+{% if v is not none %}
+  virusfilter:rename suffix = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_scan_archive', None) %}
+{% if v is not none %}
+  virusfilter:scan archive = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_scan_error_command', None) %}
+{% if v is not none %}
+  virusfilter:scan error command = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_scan_error_errno_on_close', None) %}
+{% if v is not none %}
+  virusfilter:scan error errno on close = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_scan_error_errno_on_open', None) %}
+{% if v is not none %}
+  virusfilter:scan error errno on open = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_scan_mime', None) %}
+{% if v is not none %}
+  virusfilter:scan mime = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_scan_on_close', None) %}
+{% if v is not none %}
+  virusfilter:scan on close = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_scan_on_open', None) %}
+{% if v is not none %}
+  virusfilter:scan on open = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_scanner', None) %}
+{% if v is not none %}
+  virusfilter:scanner = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('virusfilter_socket_path', None) %}
+{% if v is not none %}
+  virusfilter:socket path = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('volume', None) %}
+{% if v is not none %}
+  volume = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('wide_links', None) %}
+{% if v is not none %}
+  wide links = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('worm_grace_period', None) %}
+{% if v is not none %}
+  worm:grace_period = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('writable', None) %}
+{% if v is not none %}
+  writable = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('write_cache_size', None) %}
+{% if v is not none %}
+  write cache size = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('write_list', None) %}
+{% if v is not none %}
+  write list = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('write_ok', None) %}
+{% if v is not none %}
+  write ok = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('writeable', None) %}
+{% if v is not none %}
+  writeable = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% set v = share.get('xattr_tdb_file', None) %}
+{% if v is not none %}
+  xattr_tdb:file = {{ format_samba_option(v, '', ' ') }}
+{% endif %}
+{% if not loop.last %}
+
+{% endif %}
+{% endfor %}
