@@ -13,6 +13,8 @@
   with_items:
     - "{{ samba_users | selectattr('create_unix', 'defined') | selectattr('create_unix') | list }}"
     - "{{ samba_default_user_create_unix | ternary(samba_users | rejectattr('create_unix', 'defined') | list, []) }}"
+  loop_control:
+    label: "{{ item.name }}"
 
 - name: Create Samba users
   shell: >-
@@ -23,5 +25,6 @@
     executable: /bin/bash
   register: samba__passwd
   changed_when: "'Added user' in samba__passwd.stdout"
-  no_log: true
   loop: "{{ samba_users }}"
+  loop_control:
+    label: "{{ item.name }}"
